@@ -1,350 +1,664 @@
-<img  align="right" src="https://github.com/UCLanCSC/CSResources/blob/main/images/general/logo.jpg?raw=true" style="zoom:10%" />
-
-# CO2404 : Cross Platform Development
-
-### Lab : Dart
-
-> **Remember** labs often follow-on from the lectures. If you are stuck you should review your lecture notes, slides or recording as essential information is contained in the topics you learn week-on-week. Practical work (labs and coursework) will require you to review past lecture materials as you will be required to assimilate this knowledge over time. 
-
-**You will need to demo work to your tutor to sign off at the end of each session**
-
-
-
-## Summary
-
-By the end of this session you will have experienced the Dart programming language. You will have written Dart code that declares various variables, written functions to perform tasks, handled conditions and loops to iterate the check conditions and written a class to hold data that will be useful when passing data between views and to the server. 
-
-## Aim
-
-The lab aims to;
-
-1. Introduce the basic syntax in programming with Dart
-2. Expose you to the Visual Studio Code environment enabling you to become familiar with the terminology used in writing and debugging applications
-3. Provide the foundations in programming with Dart
-
-
-
-## Intended Learning Outcome ##
-
-This lab intends to contribute towards achieving ILO's 1 and 4: Develop a cross platform application for mobile using a modern development environment, and critically evaluate solutions to problems relating to cross platform mobile applications.
-
-
-
-## Introduction
-
-In this lab, you will begin to write Dart code. Following on from the lecture you will be expected to become familiar with the syntax  declaring variables, functions and writing loops and classes. This is an introductory session where it will be built upon as the labs progress. It is important you follow these lab materials and complete weekly to avoid falling behind. 
-
-
-
-## Activities
-
-This lab is constructed to provide you the basic knowledge in getting familiar with Visual Studio Code. This las assumes you have completed the set up of the environment correctly. 
-
-> **Remember** for any of your modules its good housekeeping to create a structure to your work. Each module should have it's own folder, inside each module, you should split up the work either by lecture and labs or weeks. Inside each lab you should further breakdown your work. You should also have a separate folder for assignments. This will help you manage your workload as your course progresses.    
-
-### Activity 1: Getting familiar with Dart ###
-
-As you know Dart is the programming language used for developing cross platform mobile applications with Flutter. Dart is compiled to native, statically-typed, object oriented, procedural language that is similar C#, Java, C++, C, Swift and TypeScript, JavaScript. 
-
-- A language is **statically**-**typed** if the **type** of a variable is known at compile-time instead of at run-time.
-- **Object**-**oriented** programming (OOP) is a programming language model that organizes software design around data, or **objects**, rather than functions and logic.
-- **Procedures**, also known as routines, subroutines, or functions, simply contain a series of computational steps to be carried out.
-
-Dart supports a range of programming aids such as classes, interfaces, collections, generics and option typing. 
-
-If you have yet to set up VSC you can always program Dart in the browser using the [DartPad.dev](https://dartpad.dev/) web application. For the purpose of this lab, it doesn't matter if you write your code inside VSC or DartPad as you are learning the basics of Dart programming. We are not building Flutter applications at the moment.
-
-> **VSC Only** If you are writing code inside VSC you will need to create a Dart project (*note* this is different from a Flutter project). Using the 'Command Palette' (Ctrl + Shift + P) type Dart project select Dart: New Project and choose Console Application, specify the location where you want the files creating.
-
-- [ ] All Dart code starts with a main function
-
-  ```dart
-  void main() {
-   
-  }
-  ```
-
-- [ ] Start by printing 'hello world' to the console (Hint! this need to be written inside the main function
-
-  ```dart
-  print('hello world'); 
-  ```
-
-- [ ] Run this code, in VSC you will need to save and run using Debugger (F5). In DartPad you can just click 'Run'
-
-  The console window should print the string Hello World.
-
-- [ ] Modify the code so that hello world is stored in a variable and print the variable
-
-- [ ] Run the code
-
-  > - Dart ignores spaces, tabs, and newlines that appear in programs. You can use spaces, tabs, and newlines freely in your program and you are free to format and indent your programs in a neat and consistent way that makes the code easy to read and understand
-  >
-  > - Dart is case-sensitive. This means that Dart differentiates between uppercase and lowercase characters
-  >
-  > - Each line of instruction is called a statement. Each dart statement must end with a semicolon (;). A single line can contain multiple statements. However, these statements must be separated by a semicolon
-  >
-  > - Comments are written like so:
-  >
-  >   ```dart
-  >   // this is single line comment  
-  >                   
-  >   /* This is a   
-  >      Multi-line comment  
-  >   */ 
-  >   ```
-
-- [ ] Modify the code to include some comments 
-
-- [ ] Update the main function to include an integer and double with any value 
-
-- [ ] Modify the print statement to include these new variables
-
-  > **Note** as the print statement prints a String, int and double. You need to adopt string interpolation or append the toString() method to the variable
-  >
-  > ```dart
-  >  print("$hw $x"); //String interpolation
-  >  print(hw + " " + y.toString()); //toString() method
-  > ```
-
-- [ ] Add two final and const variables (a1, b1) and set their values to 10 and 11
-
-  ```dart
-  final a1 = 10;
-  const b1 = 11;
-  ```
-
-- [ ] On a new line reset b1 to equal 12
-
-- [ ] In a comment write why this is not acceptable
-
-- [ ] Add a further const variable c1 to equal b1 + 1
-
-- [ ] In a comment write why this is acceptable 
-
-- [ ] Add the following items into an Array of Strings ("Android", "iOS", "Web", "Desktop", "Wearable", "Smart Speaker")
-
-- [ ] Print 'Web' by referencing the item within the array. **Hint!** you will need to use the reference of the array item using the squared bracket and item index [2]
-
-- [ ] Update the code to add 'Smart Car' as a new item to the array. You will need to use the '.add' method, by using the variable name of the array and appending the method and value to it. 
-
-- [ ] Print the new length of the array using the '.length' method 
-
-  If the console prints 7, you have done this correctly
-
-  The length method is used to determine the size of an array.
-
-- [ ] You can also remove an item from an array using either the '.remove' or '.removeAt' methods. The remove method takes the value you wish to remove whereas the removeAt method takes the index value
-
-  ```dart
-  .removeAt(1);
-  .remove('Wearable');
-  ```
-
-- [ ] Review the String methods and consider where you might use these methods
-
-  | Sr.No | Methods & Description                                        |
-  | ----- | ------------------------------------------------------------ |
-  | 1     | [toLowerCase()](https://www.tutorialspoint.com/dart_programming/dart_programming_string_tolowercase_method.htm) Converts all characters in this string to lower case. |
-  | 2     | [toUpperCase() ](https://www.tutorialspoint.com/dart_programming/dart_programming_string_toUppercase_method.htm)Converts all characters in this string to upper case. |
-  | 3     | [trim()](https://www.tutorialspoint.com/dart_programming/dart_programming_string_trim_method.htm) Returns the string without any leading and trailing whitespace. |
-  | 4     | [compareTo()](https://www.tutorialspoint.com/dart_programming/dart_programming_string_compareto_method.htm) Compares this object to another. |
-  | 5     | [replaceAll() ](https://www.tutorialspoint.com/dart_programming/dart_programming_string_replaceall_method.htm)Replaces all substrings that match the specified pattern with a given value. |
-  | 6     | [split()](https://www.tutorialspoint.com/dart_programming/dart_programming_string_split_method.htm) Splits the string at matches of the specified delimiter and returns a list of substrings. |
-  | 7     | [substring() ](https://www.tutorialspoint.com/dart_programming/dart_programming_substring_method.htm)Returns the substring of this string that extends from startIndex, inclusive, to endIndex, exclusive. |
-  | 8     | [toString()](https://www.tutorialspoint.com/dart_programming/dart_programming_tostring_method.htm) Returns a string representation of this object. |
-  | 9     | [codeUnitAt() ](https://www.tutorialspoint.com/dart_programming/dart_programming_string_codeunitat_method.htm)Returns the 16-bit UTF-16 code unit at the given index. |
-
-- [ ] Review the numbers methods and consider where you might use these methods
-
-  | Sr.No | Method & Description                                         |
-  | ----- | ------------------------------------------------------------ |
-  | 1     | [abs](https://www.tutorialspoint.com/dart_programming/dart_programming_abs_method.htm) Returns the absolute value of the number. |
-  | 2     | [ceil](https://www.tutorialspoint.com/dart_programming/dart_programming_ceil_method.htm) Returns the least integer no smaller than the number. |
-  | 3     | [compareTo ](https://www.tutorialspoint.com/dart_programming/dart_programming_compareto_method.htm)Compares this to other number. |
-  | 4     | [Floor](https://www.tutorialspoint.com/dart_programming/dart_programming_floor_method.htm) Returns the greatest integer not greater than the current number. |
-  | 5     | [remainder](https://www.tutorialspoint.com/dart_programming/dart_programming_remainder_method.htm) Returns the truncated remainder after dividing the two numbers. |
-  | 6     | [Round](https://www.tutorialspoint.com/dart_programming/dart_programming_round_method.htm) Returns the integer closest to the current numbers. |
-  | 7     | [toDouble ](https://www.tutorialspoint.com/dart_programming/dart_programming_todouble_method.htm)Returns the double equivalent of the number. |
-  | 8     | [toInt](https://www.tutorialspoint.com/dart_programming/dart_programming_toint_method.htm) Returns the integer equivalent of the number. |
-  | 9     | [toString ](https://www.tutorialspoint.com/dart_programming/dart_programming_number_tostring_method.htm)Returns the string equivalent representation of the number. |
-  | 10    | [truncate ](https://www.tutorialspoint.com/dart_programming/dart_programming_truncate_method.htm)Returns an integer after discarding any fractional digits. |
-
-- [ ] Review the array/list methods and consider where you might use these method
-
-  | Sr.No | Methods & Description                                        |
-  | ----- | ------------------------------------------------------------ |
-  | 1     | [first ](https://www.tutorialspoint.com/dart_programming/dart_programming_list_first_method.htm)Returns the first element in the list. |
-  | 2     | [isEmpty](https://www.tutorialspoint.com/dart_programming/dart_programming_list_isempty_method.htm) Returns true if the collection has no elements. |
-  | 3     | [isNotEmpty ](https://www.tutorialspoint.com/dart_programming/dart_programming_list_isnotempty_method.htm)Returns true if the collection has at least one element. |
-  | 4     | [length](https://www.tutorialspoint.com/dart_programming/dart_programming_list_length_method.htm) Returns the size of the list. |
-  | 5     | [last ](https://www.tutorialspoint.com/dart_programming/dart_programming_list_last_method.htm)Returns the last element in the list. |
-  | 6     | [reversed](https://www.tutorialspoint.com/dart_programming/dart_programming_list_reversed_method.htm) Returns an iterable object containing the lists values in the reverse order. |
-  | 7     | [Single ](https://www.tutorialspoint.com/dart_programming/dart_programming_list_single_method.htm)Checks if the list has only one element and returns it. |
-
-  > So far we have covered basic String, number and array variables. It is important you understand what methods are available to use as you will need to use these in forthcoming labs and the coursework assignment.
-
-### Activity 2: Conditions and iteration ###
-
-Programming requires checking conditions and repetition 
-
-- [ ] Using the x integer variable created previously, you will now write an if statement to check if the value if greater than 50. If the condition is met print 'the variable is greater than 50' otherwise print 'the value is less than 50'
-
-- [ ] Review further the other operators that you will need throughout the module and assessments
-
-  **Arithmetic Operators** 
-
-  | Sr.No | Operators & Meaning                                          |
-  | ----- | ------------------------------------------------------------ |
-  | 1     | **+**Add                                                     |
-  | 2     | **−**Subtract                                                |
-  | 3     | **-expr**Unary minus, also known as negation (reverse the sign of the expression) |
-  | 4     | *****Multiply                                                |
-  | 5     | **/**Divide                                                  |
-  | 6     | **~/**Divide, returning an integer result                    |
-  | 7     | **%**Get the remainder of an integer division (modulo)       |
-  | 8     | **++**Increment                                              |
-  | 9     | **--**Decrement                                              |
-
-  **Equality and Relational Operators** test or defines the kind of relationship between two entities Returning a Boolean value
-
-  | Operator | Description              | Example           |
-  | -------- | ------------------------ | ----------------- |
-  | >        | Greater than             | (A > B) is False  |
-  | <        | Lesser than              | (A < B) is True   |
-  | >=       | Greater than or equal to | (A >= B) is False |
-
-  **Type test Operators** used for checking types at runtime
-
-  | Operator | Meaning                                    |
-  | -------- | ------------------------------------------ |
-  | is       | True if the object has the specified type  |
-  | is!      | False if the object has the specified type |
-
-  **Bitwise Operators** 
-
-  | Operator                     | Description | Example                                                      |
-  | ---------------------------- | ----------- | ------------------------------------------------------------ |
-  | Bitwise AND                  | a & b       | Returns a one in each bit position for which the corresponding bits of both operands are ones. |
-  | Bitwise OR                   | a \| b      | Returns a one in each bit position for which the corresponding bits of either or both operands are ones. |
-  | Bitwise XOR                  | a ^ b       | Returns a one in each bit position for which the corresponding bits of either but not both operands are ones. |
-  | Bitwise NOT                  | ~ a         | Inverts the bits of its operand.                             |
-  | Left shift                   | a ≪ b       | Shifts a in binary representation b (< 32) bits to the left, shifting in zeroes from the right. |
-  | Sign propagating right shift | a ≫ b       | Shifts a in binary representation b (< 32) bits to the right, discarding bits shifted off. |
-
-  **Assignment Operators**
-
-  | Sr.No | Operator & Description                                       |
-  | ----- | ------------------------------------------------------------ |
-  | 1     | **=(Simple Assignment )**Assigns values from the right side operand to the left side operand**Ex**:C = A + B will assign the value of A + B into C |
-  | 2     | **??=**Assign the value only if the variable is null         |
-  | 3     | **+=(Add and Assignment)**It adds the right operand to the left operand and assigns the result to the left operand.**Ex**: C += A is equivalent to C = C + A |
-  | 4     | **─=(Subtract and Assignment)**It subtracts the right operand from the left operand and assigns the result to the left operand.**Ex**: C -= A is equivalent to C = C – A |
-  | 5     | ***=(Multiply and Assignment)**It multiplies the right operand with the left operand and assigns the result to the left operand.**Ex**: C *= A is equivalent to C = C * A |
-  | 6     | **/=(Divide and Assignment)**It divides the left operand with the right operand and assigns the result to the left operand. |
-
-  **Logical Operators**
-
-  | Operator | Description                                                  | Example                       |
-  | -------- | ------------------------------------------------------------ | ----------------------------- |
-  | &&       | **And** − The operator returns true only if all the expressions specified return true | (A > 10 && B > 10) is False.  |
-  | \|\|     | **OR** − The operator returns true if at least one of the expressions specified return true | (A > 10 \|\| B > 10) is True. |
-  | !        | **NOT** − The operator returns the inverse of the expression’s result. For E.g.: !(7>5) returns false | !(A > 10) is True.            |
-
-  In programming it is often required to repeat an execution. To do this, there are multiple approaches such as loops (for, while and do while).
-
-- [ ] Write a for loop statement that loops through the array printing the item on a new line
-
-- [ ] Try an alternative loop (while) to give you exposure to a different approach 
-
-### Activity 3: Maps ###
-
-The map object is a s key/value pair. This means the items in the map contain a key to identify the item and a corresponding value. 
-
-You can declare a map by:
-
-1. Map Literals 
-
-   ```dart
-   var mapVariable = { key1:value1, key2:value2 [,…..,key_n:value_n] }
-   ```
-
-2. Map constructor 
-
-   ```dart
-   var mapVariable = new Map();
-   mapVariable[key] = value
-   ```
-
-- [ ] Using a Map Literal, declare the map variable name as student with the following key/value pairs - id, name, email with your own values 
-
-- [ ] Update the code to include an additional pair 
-
-  ```
-  student['course'] = 'Software Engineering';
-  ```
-
-- [ ] Write a print statement to print the map to the console
-
-- [ ] Covert the Map Literal using the Map Constructor approach
-
-- [ ] Review the map properties and functions
-
-  | Sr.No | Property / Function & Description                            |
-  | ----- | ------------------------------------------------------------ |
-  | 1     | [Keys ](https://www.tutorialspoint.com/dart_programming/dart_programming_map_keys.htm)Returns an iterable object representing keys |
-  | 2     | [Values](https://www.tutorialspoint.com/dart_programming/dart_programming_map_values.htm) Returns an iterable object representing values |
-  | 3     | [Length ](https://www.tutorialspoint.com/dart_programming/dart_programming_map_length.htm)Returns the size of the Map |
-  | 4     | [isEmpty ](https://www.tutorialspoint.com/dart_programming/dart_programming_map_isempty.htm)Returns true if the Map is an empty Map |
-  | 5     | [isNotEmpty](https://www.tutorialspoint.com/dart_programming/dart_programming_map_isnotempty.htm) Returns true if the Map is an empty Map |
-  | 6     | [addAll() ](https://www.tutorialspoint.com/dart_programming/dart_programming_map_function_addall.htm)Adds all key-value pairs of other to this map. |
-  | 7     | [clear() ](https://www.tutorialspoint.com/dart_programming/dart_programming_map_function_clear.htm)Removes all pairs from the map. |
-  | 8     | [remove()](https://www.tutorialspoint.com/dart_programming/dart_programming_map_function_remove.htm) Removes key and its associated value, if present, from the map. |
-  | 9     | [forEach()](https://www.tutorialspoint.com/dart_programming/dart_programming_map_function_foreach.htm) Applies f to each key-value pair of the map. |
-
-### Activity 4: Functions ###
-
-Functions are the building blocks of readable, manageable and reusable code. A function is a set of statements that perform a particular task. Writing code in functions allows the program to be organised into logical blocks. A function's declaration tells the compiler the name, return type and if any parameters are needed.
-
-Recursive functions are used to iterate over an operation by having a function call itself repeatedly until a result is met. 
-
-Lambda functions are a concise way of writing functions using the an arrow notation. 
-
-```dart
-[return_type]function_name(parameters)=>expression;
-```
-
-For example:
-
-```dart
-void main() { 
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CO2404 &colon; Cross Platform Development</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <img  align="right" src="https://github.com/UCLanCSC/CSResources/blob/main/images/general/logo.jpg?raw=true" style="zoom:10%" />
+<h1 id="co2404--cross-platform-development">CO2404 : Cross Platform Development</h1>
+<h3 id="lab--dart">Lab : Dart</h3>
+<blockquote>
+<p><strong>Remember</strong> labs often follow-on from the lectures. If you are stuck you should review your lecture notes, slides or recording as essential information is contained in the topics you learn week-on-week. Practical work (labs and coursework) will require you to review past lecture materials as you will be required to assimilate this knowledge over time.</p>
+</blockquote>
+<p><strong>You will need to demo work to your tutor to sign off at the end of each session</strong></p>
+<h2 id="summary">Summary</h2>
+<p>By the end of this session you will have experienced the Dart programming language. You will have written Dart code that declares various variables, written functions to perform tasks, handled conditions and loops to iterate the check conditions and written a class to hold data that will be useful when passing data between views and to the server.</p>
+<h2 id="aim">Aim</h2>
+<p>The lab aims to;</p>
+<ol>
+<li>Introduce the basic syntax in programming with Dart</li>
+<li>Expose you to the Visual Studio Code environment enabling you to become familiar with the terminology used in writing and debugging applications</li>
+<li>Provide the foundations in programming with Dart</li>
+</ol>
+<h2 id="intended-learning-outcome">Intended Learning Outcome</h2>
+<p>This lab intends to contribute towards achieving ILO's 1 and 4: Develop a cross platform application for mobile using a modern development environment, and critically evaluate solutions to problems relating to cross platform mobile applications.</p>
+<h2 id="introduction">Introduction</h2>
+<p>In this lab, you will begin to write Dart code. Following on from the lecture you will be expected to become familiar with the syntax  declaring variables, functions and writing loops and classes. This is an introductory session where it will be built upon as the labs progress. It is important you follow these lab materials and complete weekly to avoid falling behind.</p>
+<h2 id="activities">Activities</h2>
+<p>This lab is constructed to provide you the basic knowledge in getting familiar with Visual Studio Code. This las assumes you have completed the set up of the environment correctly.</p>
+<blockquote>
+<p><strong>Remember</strong> for any of your modules its good housekeeping to create a structure to your work. Each module should have it's own folder, inside each module, you should split up the work either by lecture and labs or weeks. Inside each lab you should further breakdown your work. You should also have a separate folder for assignments. This will help you manage your workload as your course progresses.</p>
+</blockquote>
+<h3 id="activity-1-getting-familiar-with-dart">Activity 1: Getting familiar with Dart</h3>
+<p>As you know Dart is the programming language used for developing cross platform mobile applications with Flutter. Dart is compiled to native, statically-typed, object oriented, procedural language that is similar C#, Java, C++, C, Swift and TypeScript, JavaScript.</p>
+<ul>
+<li>A language is <strong>statically</strong>-<strong>typed</strong> if the <strong>type</strong> of a variable is known at compile-time instead of at run-time.</li>
+<li><strong>Object</strong>-<strong>oriented</strong> programming (OOP) is a programming language model that organizes software design around data, or <strong>objects</strong>, rather than functions and logic.</li>
+<li><strong>Procedures</strong>, also known as routines, subroutines, or functions, simply contain a series of computational steps to be carried out.</li>
+</ul>
+<p>Dart supports a range of programming aids such as classes, interfaces, collections, generics and option typing.</p>
+<p>If you have yet to set up VSC you can always program Dart in the browser using the <a href="https://dartpad.dev/">DartPad.dev</a> web application. For the purpose of this lab, it doesn't matter if you write your code inside VSC or DartPad as you are learning the basics of Dart programming. We are not building Flutter applications at the moment.</p>
+<blockquote>
+<p><strong>VSC Only</strong> If you are writing code inside VSC you will need to create a Dart project (<em>note</em> this is different from a Flutter project). Using the 'Command Palette' (Ctrl + Shift + P) type Dart project select Dart: New Project and choose Console Application, specify the location where you want the files creating.</p>
+</blockquote>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> All Dart code starts with a main function</p>
+<pre><code class="language-dart"><span class="hljs-keyword">void</span> main() {
+ 
+}
+</code></pre>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Start by printing 'hello world' to the console (Hint! this need to be written inside the main function</p>
+<pre><code class="language-dart"><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;hello world&#x27;</span>); 
+</code></pre>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Run this code, in VSC you will need to save and run using Debugger (F5). In DartPad you can just click 'Run'</p>
+<p>The console window should print the string Hello World.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Modify the code so that hello world is stored in a variable and print the variable</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Run the code</p>
+<blockquote>
+<ul>
+<li>
+<p>Dart ignores spaces, tabs, and newlines that appear in programs. You can use spaces, tabs, and newlines freely in your program and you are free to format and indent your programs in a neat and consistent way that makes the code easy to read and understand</p>
+</li>
+<li>
+<p>Dart is case-sensitive. This means that Dart differentiates between uppercase and lowercase characters</p>
+</li>
+<li>
+<p>Each line of instruction is called a statement. Each dart statement must end with a semicolon (;). A single line can contain multiple statements. However, these statements must be separated by a semicolon</p>
+</li>
+<li>
+<p>Comments are written like so:</p>
+<pre><code class="language-dart"><span class="hljs-comment">// this is single line comment  </span>
+                
+<span class="hljs-comment">/* This is a   
+   Multi-line comment  
+*/</span> 
+</code></pre>
+</li>
+</ul>
+</blockquote>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Modify the code to include some comments</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Update the main function to include an integer and double with any value</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Modify the print statement to include these new variables</p>
+<blockquote>
+<p><strong>Note</strong> as the print statement prints a String, int and double. You need to adopt string interpolation or append the toString() method to the variable</p>
+<pre><code class="language-dart"> <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;<span class="hljs-subst">$hw</span> <span class="hljs-subst">$x</span>&quot;</span>); <span class="hljs-comment">//String interpolation</span>
+ <span class="hljs-built_in">print</span>(hw + <span class="hljs-string">&quot; &quot;</span> + y.toString()); <span class="hljs-comment">//toString() method</span>
+</code></pre>
+</blockquote>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Add two final and const variables (a1, b1) and set their values to 10 and 11</p>
+<pre><code class="language-dart"><span class="hljs-keyword">final</span> a1 = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">const</span> b1 = <span class="hljs-number">11</span>;
+</code></pre>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> On a new line reset b1 to equal 12</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> In a comment write why this is not acceptable</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Add a further const variable c1 to equal b1 + 1</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> In a comment write why this is acceptable</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Add the following items into an Array of Strings (&quot;Android&quot;, &quot;iOS&quot;, &quot;Web&quot;, &quot;Desktop&quot;, &quot;Wearable&quot;, &quot;Smart Speaker&quot;)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Print 'Web' by referencing the item within the array. <strong>Hint!</strong> you will need to use the reference of the array item using the squared bracket and item index [2]</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Update the code to add 'Smart Car' as a new item to the array. You will need to use the '.add' method, by using the variable name of the array and appending the method and value to it.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Print the new length of the array using the '.length' method</p>
+<p>If the console prints 7, you have done this correctly</p>
+<p>The length method is used to determine the size of an array.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> You can also remove an item from an array using either the '.remove' or '.removeAt' methods. The remove method takes the value you wish to remove whereas the removeAt method takes the index value</p>
+<pre><code class="language-dart">.removeAt(<span class="hljs-number">1</span>);
+.remove(<span class="hljs-string">&#x27;Wearable&#x27;</span>);
+</code></pre>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Review the String methods and consider where you might use these methods</p>
+<table>
+<thead>
+<tr>
+<th><a href="http://Sr.No">Sr.No</a></th>
+<th>Methods &amp; Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_string_tolowercase_method.htm">toLowerCase()</a> Converts all characters in this string to lower case.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_string_toUppercase_method.htm">toUpperCase() </a>Converts all characters in this string to upper case.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_string_trim_method.htm">trim()</a> Returns the string without any leading and trailing whitespace.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_string_compareto_method.htm">compareTo()</a> Compares this object to another.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_string_replaceall_method.htm">replaceAll() </a>Replaces all substrings that match the specified pattern with a given value.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_string_split_method.htm">split()</a> Splits the string at matches of the specified delimiter and returns a list of substrings.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_substring_method.htm">substring() </a>Returns the substring of this string that extends from startIndex, inclusive, to endIndex, exclusive.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_tostring_method.htm">toString()</a> Returns a string representation of this object.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_string_codeunitat_method.htm">codeUnitAt() </a>Returns the 16-bit UTF-16 code unit at the given index.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Review the numbers methods and consider where you might use these methods</p>
+<table>
+<thead>
+<tr>
+<th><a href="http://Sr.No">Sr.No</a></th>
+<th>Method &amp; Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_abs_method.htm">abs</a> Returns the absolute value of the number.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_ceil_method.htm">ceil</a> Returns the least integer no smaller than the number.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_compareto_method.htm">compareTo </a>Compares this to other number.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_floor_method.htm">Floor</a> Returns the greatest integer not greater than the current number.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_remainder_method.htm">remainder</a> Returns the truncated remainder after dividing the two numbers.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_round_method.htm">Round</a> Returns the integer closest to the current numbers.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_todouble_method.htm">toDouble </a>Returns the double equivalent of the number.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_toint_method.htm">toInt</a> Returns the integer equivalent of the number.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_number_tostring_method.htm">toString </a>Returns the string equivalent representation of the number.</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_truncate_method.htm">truncate </a>Returns an integer after discarding any fractional digits.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Review the array/list methods and consider where you might use these method</p>
+<table>
+<thead>
+<tr>
+<th><a href="http://Sr.No">Sr.No</a></th>
+<th>Methods &amp; Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_list_first_method.htm">first </a>Returns the first element in the list.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_list_isempty_method.htm">isEmpty</a> Returns true if the collection has no elements.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_list_isnotempty_method.htm">isNotEmpty </a>Returns true if the collection has at least one element.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_list_length_method.htm">length</a> Returns the size of the list.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_list_last_method.htm">last </a>Returns the last element in the list.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_list_reversed_method.htm">reversed</a> Returns an iterable object containing the lists values in the reverse order.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_list_single_method.htm">Single </a>Checks if the list has only one element and returns it.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>So far we have covered basic String, number and array variables. It is important you understand what methods are available to use as you will need to use these in forthcoming labs and the coursework assignment.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="activity-2-conditions-and-iteration">Activity 2: Conditions and iteration</h3>
+<p>Programming requires checking conditions and repetition</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Using the x integer variable created previously, you will now write an if statement to check if the value if greater than 50. If the condition is met print 'the variable is greater than 50' otherwise print 'the value is less than 50'</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Review further the other operators that you will need throughout the module and assessments</p>
+<p><strong>Arithmetic Operators</strong></p>
+<table>
+<thead>
+<tr>
+<th><a href="http://Sr.No">Sr.No</a></th>
+<th>Operators &amp; Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>**+**Add</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>−</strong>Subtract</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>-expr</strong>Unary minus, also known as negation (reverse the sign of the expression)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>*****Multiply</td>
+</tr>
+<tr>
+<td>5</td>
+<td>**/**Divide</td>
+</tr>
+<tr>
+<td>6</td>
+<td>**~/**Divide, returning an integer result</td>
+</tr>
+<tr>
+<td>7</td>
+<td>**%**Get the remainder of an integer division (modulo)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>**++**Increment</td>
+</tr>
+<tr>
+<td>9</td>
+<td>**--**Decrement</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Equality and Relational Operators</strong> test or defines the kind of relationship between two entities Returning a Boolean value</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;</td>
+<td>Greater than</td>
+<td>(A &gt; B) is False</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>Lesser than</td>
+<td>(A &lt; B) is True</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>Greater than or equal to</td>
+<td>(A &gt;= B) is False</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Type test Operators</strong> used for checking types at runtime</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>is</td>
+<td>True if the object has the specified type</td>
+</tr>
+<tr>
+<td>is!</td>
+<td>False if the object has the specified type</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bitwise Operators</strong></p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bitwise AND</td>
+<td>a &amp; b</td>
+<td>Returns a one in each bit position for which the corresponding bits of both operands are ones.</td>
+</tr>
+<tr>
+<td>Bitwise OR</td>
+<td>a | b</td>
+<td>Returns a one in each bit position for which the corresponding bits of either or both operands are ones.</td>
+</tr>
+<tr>
+<td>Bitwise XOR</td>
+<td>a ^ b</td>
+<td>Returns a one in each bit position for which the corresponding bits of either but not both operands are ones.</td>
+</tr>
+<tr>
+<td>Bitwise NOT</td>
+<td>~ a</td>
+<td>Inverts the bits of its operand.</td>
+</tr>
+<tr>
+<td>Left shift</td>
+<td>a ≪ b</td>
+<td>Shifts a in binary representation b (&lt; 32) bits to the left, shifting in zeroes from the right.</td>
+</tr>
+<tr>
+<td>Sign propagating right shift</td>
+<td>a ≫ b</td>
+<td>Shifts a in binary representation b (&lt; 32) bits to the right, discarding bits shifted off.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Assignment Operators</strong></p>
+<table>
+<thead>
+<tr>
+<th><a href="http://Sr.No">Sr.No</a></th>
+<th>Operator &amp; Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>=(Simple Assignment )<strong>Assigns values from the right side operand to the left side operand</strong>Ex</strong>:C = A + B will assign the value of A + B into C</td>
+</tr>
+<tr>
+<td>2</td>
+<td>**??=**Assign the value only if the variable is null</td>
+</tr>
+<tr>
+<td>3</td>
+<td>**+=(Add and Assignment)**It adds the right operand to the left operand and assigns the result to the left operand.<strong>Ex</strong>: C += A is equivalent to C = C + A</td>
+</tr>
+<tr>
+<td>4</td>
+<td>**─=(Subtract and Assignment)**It subtracts the right operand from the left operand and assigns the result to the left operand.<strong>Ex</strong>: C -= A is equivalent to C = C – A</td>
+</tr>
+<tr>
+<td>5</td>
+<td>***=(Multiply and Assignment)**It multiplies the right operand with the left operand and assigns the result to the left operand.<strong>Ex</strong>: C *= A is equivalent to C = C * A</td>
+</tr>
+<tr>
+<td>6</td>
+<td>**/=(Divide and Assignment)**It divides the left operand with the right operand and assigns the result to the left operand.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Logical Operators</strong></p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;&amp;</td>
+<td><strong>And</strong> − The operator returns true only if all the expressions specified return true</td>
+<td>(A &gt; 10 &amp;&amp; B &gt; 10) is False.</td>
+</tr>
+<tr>
+<td>||</td>
+<td><strong>OR</strong> − The operator returns true if at least one of the expressions specified return true</td>
+<td>(A &gt; 10 || B &gt; 10) is True.</td>
+</tr>
+<tr>
+<td>!</td>
+<td><strong>NOT</strong> − The operator returns the inverse of the expression’s result. For E.g.: !(7&gt;5) returns false</td>
+<td>!(A &gt; 10) is True.</td>
+</tr>
+</tbody>
+</table>
+<p>In programming it is often required to repeat an execution. To do this, there are multiple approaches such as loops (for, while and do while).</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Write a for loop statement that loops through the array printing the item on a new line</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Try an alternative loop (while) to give you exposure to a different approach</p>
+</li>
+</ul>
+<h3 id="activity-3-maps">Activity 3: Maps</h3>
+<p>The map object is a s key/value pair. This means the items in the map contain a key to identify the item and a corresponding value.</p>
+<p>You can declare a map by:</p>
+<ol>
+<li>
+<p>Map Literals</p>
+<pre><code class="language-dart"><span class="hljs-keyword">var</span> mapVariable = { key1:value1, key2:value2 [,…..,key_n:value_n] }
+</code></pre>
+</li>
+<li>
+<p>Map constructor</p>
+<pre><code class="language-dart"><span class="hljs-keyword">var</span> mapVariable = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+mapVariable[key] = value
+</code></pre>
+</li>
+</ol>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Using a Map Literal, declare the map variable name as student with the following key/value pairs - id, name, email with your own values</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Update the code to include an additional pair</p>
+<pre><code>student['course'] = 'Software Engineering';
+</code></pre>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Write a print statement to print the map to the console</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Covert the Map Literal using the Map Constructor approach</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Review the map properties and functions</p>
+<table>
+<thead>
+<tr>
+<th><a href="http://Sr.No">Sr.No</a></th>
+<th>Property / Function &amp; Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_map_keys.htm">Keys </a>Returns an iterable object representing keys</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_map_values.htm">Values</a> Returns an iterable object representing values</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_map_length.htm">Length </a>Returns the size of the Map</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_map_isempty.htm">isEmpty </a>Returns true if the Map is an empty Map</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_map_isnotempty.htm">isNotEmpty</a> Returns true if the Map is an empty Map</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_map_function_addall.htm">addAll() </a>Adds all key-value pairs of other to this map.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_map_function_clear.htm">clear() </a>Removes all pairs from the map.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_map_function_remove.htm">remove()</a> Removes key and its associated value, if present, from the map.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://www.tutorialspoint.com/dart_programming/dart_programming_map_function_foreach.htm">forEach()</a> Applies f to each key-value pair of the map.</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h3 id="activity-4-functions">Activity 4: Functions</h3>
+<p>Functions are the building blocks of readable, manageable and reusable code. A function is a set of statements that perform a particular task. Writing code in functions allows the program to be organised into logical blocks. A function's declaration tells the compiler the name, return type and if any parameters are needed.</p>
+<p>Recursive functions are used to iterate over an operation by having a function call itself repeatedly until a result is met.</p>
+<p>Lambda functions are a concise way of writing functions using the an arrow notation.</p>
+<pre><code class="language-dart">[return_type]function_name(parameters)=&gt;expression;
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-dart"><span class="hljs-keyword">void</span> main() { 
    printMsg(); 
 }
-printMsg()=>print("hello");
-```
-
-Would be the same as:
-
-```dart
-void main() { 
+printMsg()=&gt;<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello&quot;</span>);
+</code></pre>
+<p>Would be the same as:</p>
+<pre><code class="language-dart"><span class="hljs-keyword">void</span> main() { 
    printMsg(); 
 }
 printMsg(){
-	print('hello');
+	<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;hello&#x27;</span>);
 }
-```
+</code></pre>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Modify the code so that adding to the student map is performed within a function. <strong>Hint</strong> you will need to pass three parameters to this function, the map object, key and value</li>
+</ul>
+<blockquote>
+<p>You should continue learning outside of the timetabled classes. Here are a range of resources that might help you write better Dart code.</p>
+<ul>
+<li><a href="https://dart.dev/codelabs/dart-cheatsheet">Dart Cheatsheet</a></li>
+<li><a href="https://dart.dev/guides/language/cheatsheet">Dart Language</a></li>
+<li><a href="https://codelabs.developers.google.com/codelabs/from-java-to-dart/#1">Introduction to Dart from Java</a></li>
+<li><a href="https://dartpad.dev/?null_safety=true">DartPad</a></li>
+<li><a href="https://www.syncfusion.com/blogs/post/10-best-visual-studio-code-extensions-for-flutter-development.aspx">Visual Studio Code Extensions for Flutter Development</a></li>
+<li><a href="https://www.raywenderlich.com/22685966-dart-basics0">Raywenderlich</a></li>
+<li><a href="https://dart.academy/">Dart Academy</a></li>
+<li><a href="https://dart.dev/guides/language/language-tour">Dart Language Tour</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Remember</strong> have your worked signed off weekly by your tutor.</p>
+</blockquote>
 
-- [ ] Modify the code so that adding to the student map is performed within a function. **Hint** you will need to pass three parameters to this function, the map object, key and value
-
-> You should continue learning outside of the timetabled classes. Here are a range of resources that might help you write better Dart code.
->
-> - [Dart Cheatsheet](https://dart.dev/codelabs/dart-cheatsheet)
-> - [Dart Language](https://dart.dev/guides/language/cheatsheet)
-> - [Introduction to Dart from Java](https://codelabs.developers.google.com/codelabs/from-java-to-dart/#1)
-> - [DartPad](https://dartpad.dev/?null_safety=true)
-> - [Visual Studio Code Extensions for Flutter Development](https://www.syncfusion.com/blogs/post/10-best-visual-studio-code-extensions-for-flutter-development.aspx)
-> - [Raywenderlich](https://www.raywenderlich.com/22685966-dart-basics0)
-> - [Dart Academy](https://dart.academy/)
-> - [Dart Language Tour](https://dart.dev/guides/language/language-tour)
-
-> **Remember** have your worked signed off weekly by your tutor.
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>
