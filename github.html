@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CO2404&colon; Cross Platform Development</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <img  align="right" src="https://github.com/UCLanCSC/CSResources/blob/main/images/general/logo.jpg?raw=true" style="zoom:10%" />
+<h1 id="co2404-cross-platform-development">CO2404: Cross Platform Development</h1>
+<h3 id="lab-github">Lab: GitHub</h3>
+<blockquote>
+<p><strong>Remember</strong> labs often follow-on from the lectures. If you are stuck you should review your lecture notes, slides or recording as essential information is contained in the topics you learn week-on-week. Practical work (labs and coursework) will require you to review past lecture materials as you will be required to assimilate this knowledge over time.</p>
+</blockquote>
+<p><strong>You will need to demo work to your tutor to sign off at the end of each session</strong></p>
+<h2 id="summary">Summary</h2>
+<p>This week's lab has been designed to introduce GitHub as a version control and collaboration tool. You will start by creating an account, learn about basic markdown syntax by creating a README file, integrating GitHub into workflows and how to create a new repo. This lab aims to encourage students to extend their learning of software development by adopting GitHub in their workflows to provide an efficient way to version control, store files in the cloud for backup, to gain familiarity of industry standard tools and improve their skills of programming.</p>
+<h2 id="aim">Aim</h2>
+<p>The labs aims to introduce version control by using GitHub. Version control is a useful concept when building complex software/systems. As a version control students will iteratively work on a problem and as they progress students can build with confidence knowing that all milestones of their work has an instance stored. Student will use industry standards and become aware of how Git can be embedded into their workflows for learning.</p>
+<h2 id="intended-learning-outcome">Intended Learning Outcome</h2>
+<p>This lab intends to contribute towards achieving ILO 1. &quot;Develop a cross platform application for mobile using a modern development environment.&quot;.</p>
+<h2 id="introduction">Introduction</h2>
+<p>GitHub has been around since 2008 and currently has 56 million users (to date). GitHub is built on Git (founded in 2005). Git is the protocol in which GitHub builds features around. GitHub is a hosting platform that helps software developers solve problems more efficiently, by providing tools for version control. One of the core benefits to adopting GitHub in your practice is when you are working in a team. GitHub makes collaboration simple and effective by allowing users to <em>fork</em> (taking a copy) code that then resides in their own <em>repository</em> (a user's collection of projects, aka a <em>repo</em>). GitHub also allows for users to make comments in peoples code or improvements to the code using (<em>pull requests</em>) notifying the main author of the code, which they may wish to update the main <em>branch</em> (a version of the instance). More importantly, GitHub keeps a record of everyone's contributions and feedback (version control). Version control is increasingly important as you progress through a a development of a project. This is a useful feature especially when considering the degree you are studying, where you make changes to a project over time, you might make many mistakes along the way (we all do), you have the confidence that you'll always have a backup of the most recent <em>commit</em> (the last time you published code). Commits are published source code that contains the code, a title and a description. The more context you provide the commit the better the more efficient the repo is.</p>
+<p>To find out more watch the following videos:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=w3jLJU7DT5E&amp;t=0s">What is GitHub?</a></li>
+</ul>
+<h2 id="activities">Activities</h2>
+<p>These activities are designed to introduce GitHub as a form of version control and collaboration. Each exercise will guide you through setting up your account and getting the basics on committing documents and tracking progress over time.</p>
+<blockquote>
+<p><strong>Remember</strong> for any of your modules its good housekeeping to create a structure to your work. Each module should have it's own folder, inside each module, you should split up the work either by lecture and labs or weeks. Inside each lab you should further breakdown your work. You should also have a separate folder for assignments. This will help you manage your workload as your course progresses.</p>
+</blockquote>
+<h3 id="activity-1-creating-an-account">Activity 1: Creating an account</h3>
+<p>Although GitHub is free, if you want access to the pro features this requires a payment subscription. For most of your studying you should be able to survive with the free account. However, GitHub provide this pro license for students for free (whilst you are in education - you will need to review the terms and conditions of signing up for this before you do so).</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> To start with follow <a href="https://education.github.com/pack">student education pack</a> &gt; click 'get your pack' &gt; click 'get student benefits' &gt; then click 'create an account' if you haven't already got one, then fill out your details (suggest you use your UCLan email address) &gt; in order to activate your account you will be emailed a PIN &gt; enter pin into webpage &gt; set up account (number of users and student) &gt; specify what tools you want to use (customisation)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Now you are ready to apply for the student account, this will take some time to validate as you need to provide evidence of your student status (this can be completed outside the lab) &gt; click 'GitHub student benefits' &gt; click 'get your pack' &gt; fill out form (select your University email address, enter name of school which is University of Central Lancashire and provide the proof GitHub is requesting</p>
+<p>You can still use your GitHub account whilst you are waiting for the student benefits to be applied (this is in case you want the full pro features available to you whilst you are studying). In the meantime, the free account is fine for what we will be doing.</p>
+<p>We will be using GitHub classroom, which is a space that allows automated repo creation and access control for particular activities. Today's lab activity has already been created for you to distribute code, demo work and provide feedback.</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Use the <a href="https://classroom.github.com/a/XVpfbSSM">invite link</a> to accept the classroom repo for this lab &gt; log into GitHub if you are not already logged in &gt; Authorise GitHub Classroom &gt; Accept this assignment &gt; once accepted you will be presented with the URL to your instance of the repo (this is private to you) &gt; click on this URL and you now have set up your first GitHub repo. This is the repo where you will upload your code and received feedback</p>
+</li>
+</ul>
+<h3 id="activity-2-creating-the-readme">Activity 2: Creating the README</h3>
+<p>You have now created a repo for the lab. The name of repo is github-activity-[your user name]. This is a private instance of the main repo to you but your tutor will have access to provide feedback. To get started you need to create a README file.</p>
+<p>You can create a new file within the browser or upload one from your computer. For the first part of this activity you will create a README file within the browser. GitHub should prompt you to create a README file &quot;Help people interested in this repository understand your project by adding a README.&quot; &gt; if this is visible click the green &quot;Add a README&quot; button.</p>
+<img src="https://github.com/UCLanCSC/CSResources/blob/main/images/web-tech/Screenshot%202021-09-22%20at%2009.45.11.png?raw=true" />
+<p>If for some reason you can't see the add a README button you can add it manually. Click &quot;Add file&quot; &gt; &quot;create a new file&quot; &gt; name the file <a href="http://README.html">README.md</a> (<strong>remember</strong> .md stands for markdown).</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Create a README file (A README file contains information about the other files in a directory or archive of computer software. A form of documentation, it is usually a simple plain text file called <a href="http://README.html">README.md</a>. The file's name is generally written in uppercase.)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Name your file <a href="http://README.html">README.md</a> (note we are using markdown, markdown is a lightweight markup language for creating formatted text using a plain-text editor.) If you clicked the automatic &quot;Add a README&quot; you will notice the name for the file has already been inputted</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Markdown (like markup) has a set of syntax for formatting text. Unlike markup (which we use for building web pages), markdown has basic syntax for presenting text. Review <a href="https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf">GitHub's markdown cheat sheet</a> for a guide on formatting your README file</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Modify the README to include the following information (we will update this later)</p>
+<pre><code class="language-markdown"><span class="hljs-section"># your name</span>
+<span class="hljs-section">## your student id</span>
+<span class="hljs-section">## your uclan email address</span>
+</code></pre>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Before you commit the changes to the file, make sure you supply an appropriate title and description to the commit (this is good practice as you will be assessed on your ability to make commits and the quality of each commit)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Ensure the commit directly to main branch is selected</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Once committed, you should notice your text is now formatted with heading 1 and heading 2 styling. You will be revisiting this later where you will be required to demonstrate further styling</p>
+<p>You will also notice above the README content you can see the output of the commit. In the case below &quot;My first README update&quot; was the title provided to the commit</p>
+<img src="https://github.com/UCLanCSC/CSResources/blob/main/images/web-tech/Screenshot%202021-09-22%20at%2009.58.24.png?raw=true" />
+<p>You can click on this to reveal what the commit was and the description alongside it. This is useful when you start to iterate your code and make changes you can review these changes over time to revert back to a working version. If you were collaborating with other team members they could write comments in the section below. For now your tutor will use this section to provide formative feedback on your progress in the lab.</p>
+<img src="https://github.com/UCLanCSC/CSResources/blob/main/images/web-tech/Screenshot%202021-09-22%20at%2009.58.33.png?raw=true" />
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Go back and edit the README file within the browser (click the pencil icon to open the editor)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Add the title of the module</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Provide an updated title and description to the commit. Remember you should provide detailed information in these commits to help you identify changes you make to your work. It is vital the commits make sense to you and those reading them</p>
+<p>When you go back into the commit now, GitHub will highlight the changes to the document using red to indicate a removal and green for addition. As you can see from the image below, the commit included a title addition and the removal of the previous ID and addition of the new ID.</p>
+<img src="https://github.com/UCLanCSC/CSResources/blob/main/images/web-tech/Screenshot%202021-09-22%20at%2010.03.23.png?raw=true" />
+<p>As you make iterations to documents, over time this will build up a history of commits. As you know these commits can be viewed and reverted back to (although this can not be achieved in the browser). But the purpose of this exercise is to demonstrate the ability to track progress through informative commits over time.  The image below demonstrates further commits as you can see under the commits on 22 Sept 2021, there are three commits starting from &quot;My first README update&quot; to &quot;Updated to provide help&quot;. To view the state of these commits. You can click on the ID of the commit (the blue hyperlink numbers).</p>
+<img src="https://github.com/UCLanCSC/CSResources/blob/main/images/web-tech/Screenshot%202021-09-22%20at%2010.10.05.png?raw=true" />
+</li>
+</ul>
+<h3 id="activity-3-integrating-github-into-your-workflow">Activity 3: Integrating GitHub Into your Workflow</h3>
+<p>So far you have learnt how to add a file manually through the GitHub website. GitHub allows much more than this, you can use plugins in your IDE to automatically commit as you save your work or through a Command Line Interface (CLI) or more recently GitHub have released their own Graphical User Interface (GUI) to monitor a folder on your computer and prepare the files ready for committing. It is expected you learn GitHub over the course of your study and integrate it into your learning. It is up to you to find the best method to integrate it into your learning.</p>
+<p>There are plenty of guides to support you with your independent learning:</p>
+<ul>
+<li><a href="https://github.com/git-guides/git-commit">Git guides CLI</a></li>
+<li><a href="https://docs.github.com/en/desktop">GitHub Desktop GUI</a></li>
+<li><a href="https://code.visualstudio.com/docs/editor/github">Working with GitHub in Visual Studio Code</a></li>
+</ul>
+<p>This activity will demonstrate how to integrate GitHub commits using the GitHub Desktop application.</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> First of all sign into the desktop application using your GitHub credentials, by &quot;clone a repository from the Internet...&quot; &gt; Sign in &gt; Continue with browser, if you are logged into GitHub in your browser it should automatically relaunch and signed you into the desktop application. If you are not signed in, sign into <a href="http://GitHub.com">GitHub.com</a> and follow the on screen instructions</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> The application will load the repositories you are associated with. Find the one you've just created &gt; select and &quot;Clone [name of repo]&quot;</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> You need to specify a local directory where you want the repo to be based. This is the location you will be developing the files to commit. Specify the local path and click &quot;Clone&quot;</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Locate the local path (&quot;Show in Explorer / Show in Finder&quot;)</p>
+<p>You will notice the README file you created for the assignment1 repo has now been fetched to your local machine</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Open the README file in a text editor of your choice, make a simple update</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Save the file</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Navigate back to the GitHub Desktop application, you will see the change you've just made is reflected here and the &quot;Commit to main&quot; button is now active</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Fill out the commit title and description</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> The commit is just one part of the process. You now need to push this commit to your repo. This is achieved by pressing the &quot;Push origin&quot; button</p>
+<p>Once it is complete the button is removed and you will notice the &quot;Commit to main&quot; button is now inactive</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Check the change on <a href="http://GitHub.com">GitHub.com</a> to see if the commit and push worked</p>
+</li>
+</ul>
+<blockquote>
+<p>You have now hooked up a local directory to GitHub, any changes made to the local directly can be committed and pushed to GitHub. This includes adding any new files, updating code or creating sub folders within the folder structure.</p>
+</blockquote>
+<p>To make this workflow simpler, you should investigate integrating GitHub into your IDE as it will make the process more efficient and effective when writing code. If you are struggling with this, Google the problem first then speak with your tutor.</p>
+<h3 id="activity-4-creating-a-new-repo">Activity 4: Creating a new repo</h3>
+<p>Should you wish to integrate GitHub version control into your assignment you will need to create your own repo and invite your tutor access to it. You should still follow all submission details found in the assignment brief.</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Create a new repo in your dashboard</li>
+</ul>
+<img src="https://github.com/UCLanCSC/CSResources/blob/main/images/web-tech/Screenshot%202021-09-22%20134139.png?raw=true" />
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Give your repo a name</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Select private (you don't want people accessing your work)</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Check add README file</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Create repository</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Update the README to accurately reflect the purpose of the README in this repo. Over time you will update this to include vital information for assessment</li>
+</ul>
+<img src="https://github.com/UCLanCSC/CSResources/blob/main/images/web-tech/Screenshot%202021-09-22%20134409.png?raw=true" />
+<blockquote>
+<p><strong>Remember</strong> have your worked signed off weekly by your tutor.</p>
+</blockquote>
+
+        
+        
+    </body>
+    </html>
