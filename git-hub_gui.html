@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CO2404&colon; Cross Platform Development</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <img  align="right" src="https://github.com/UCLanCSC/CSResources/blob/main/images/general/logo.jpg?raw=true" style="zoom:10%" />
+<h1 id="co2404-cross-platform-development">CO2404: Cross Platform Development</h1>
+<h3 id="lab-guided-week">Lab: Guided Week</h3>
+<blockquote>
+<p><strong>Remember</strong> labs often follow-on from the lectures. If you are stuck you should review your lecture notes, slides or recording as essential information is contained in the topics you learn week-on-week. Practical work (labs and coursework) will require you to review past lecture materials as you will be required to assimilate this knowledge over time.</p>
+</blockquote>
+<h2 id="summary">Summary</h2>
+<p>In this guided week session, you will extend your knowledge of GitHub by committing code to your repo you created in lab 2. You are expected to integrate GitHub into your workflow in order to improve your development skills and efficiency in project management.</p>
+<h2 id="aim">Aim</h2>
+<p>The self guided lab aims to extend your knowledge of the subject by advancing and building on skills previously learnt. You are expected to integrate GitHub into your project workflow. This is an important aspect of the learning objectives and assessment of this module and an important topic within industry.</p>
+<h2 id="intended-learning-outcome">Intended Learning Outcome</h2>
+<p>This lab intends to contribute towards achieving ILO 1: Develop a cross platform application for mobile using a modern development environment.</p>
+<h2 id="introduction">Introduction</h2>
+<p>As previously introduced, GitHub is an important aspect of any Computer Science related subject. You are expected to extend the skills you learnt previously by initialising GitHub into publishing code into a repository. In the activities you will be shown how to integrate this process in one of two ways.</p>
+<h2 id="activities">Activities</h2>
+<p>The following activities have been designed to extend your knowledge of version control using GitHub. Version control is an important aspect of any Computer Science related subject, where you work together on projects, develop complex systems, keep track of what is the truth (of files). In this module GitHub will be assessed in assignment 1.</p>
+<p>In these activities you will be introduced to two methods of integrating GitHub into your workflows. You can obvious write GitHub commands using the Command Line (but this is out of scope of this module - you can however, do this if you have the knowledge of want to experiment). That said, you will be introduced to GitHub Desktop and integrating GitHub into Visual Studio Code.</p>
+<h3 id="activity-1-integrating-github-desktop-into-workflow">Activity 1: Integrating GitHub Desktop into workflow</h3>
+<p>GitHub Desktop is a piece of software written by GitHub that allows users to use the GUI to initialise their projects and performs commits.</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Download <a href="https://desktop.github.com/">GitHub Desktop</a></p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Initialise GitHub by 'creating a new repository on your hard drive'</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Provide a name for your repository and a short description. For example; 'Learning GitHub' and 'Learning how to integrate GitHub into my workflow for CO2509'</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Specify where you want the directory to be created</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Check 'Initialize this repository with a README'</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Leave Git ignore selected to 'none' for now. You will revisit this later</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Leave License set to 'none'</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Click 'Create repository'</p>
+<blockquote>
+<p>This will now create the directory where all your files will be created and committed to GitHub</p>
+</blockquote>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Navigate to that directory using Windows File Explorer, you should notice two files in the directory (REAME and .gitattributes)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Now publish the files to GitHub ('publish repository'), you will now need to authenticate your account credentials to perform the commit.</p>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Sign into <a href="http://GitHub.com">GitHub.com</a> by clicking the blue 'sign in' button</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Click 'Continue with browser'</p>
+<blockquote>
+<p>This will open the browser and present you a GitHub login screen - use the account details you set up previously</p>
+</blockquote>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Once authenticated, click 'open GitHubDesktop' to navigate back to the GUI</p>
+</li>
+</ul>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Click 'Publish repository', verify the information presented (name and description of project you want to publish)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Click 'Publish repository' again, you will notice some activity happen</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Verify, the publishing worked by visiting your <a href="https://github.com/">GitHub account</a></p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> You should notice the name of the repo appear in the left-hand sidebar</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Open the repo in the browser to see if the two files created have been uploaded</p>
+<blockquote>
+<p>You have successfully connected the GUI to your GitHub account</p>
+</blockquote>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Inside Windows File Explorer, copy and paste some files from a previous lab to demonstrate changes to the directory.</p>
+<blockquote>
+<p>As you are copying all the files over, this included the images and videos. In some instances its best practices not to upload media to GitHub - and to avoid GitHub processing these files we use the Git ignore file.</p>
+<p><strong>Remember</strong>! Before you commit files to GitHub you need to perform 'flutter clean' in the terminal to remove any dependencies from your project else it will make the upload rather large</p>
+</blockquote>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Inside GitHub Desktop, click Repository &gt; Repository settings &gt; Ignored files</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> The following tells GitHub to ignore all files with the extensions listed</p>
+</li>
+</ul>
+<pre><code class="language-bash"><span class="hljs-comment"># JPEG</span>
+*.jpg
+*.jpeg
+*.jpe
+*.jif
+*.jfif
+*.jfi
+
+<span class="hljs-comment"># JPEG 2000</span>
+*.jp2
+*.j2k
+*.jpf
+*.jpx
+*.jpm
+*.mj2
+
+<span class="hljs-comment"># JPEG XR</span>
+*.jxr
+*.hdp
+*.wdp
+
+<span class="hljs-comment"># Graphics Interchange Format</span>
+*.gif
+
+<span class="hljs-comment"># RAW</span>
+*.raw
+
+<span class="hljs-comment"># Web P</span>
+*.webp
+
+<span class="hljs-comment"># Portable Network Graphics</span>
+*.png
+
+<span class="hljs-comment"># Animated Portable Network Graphics</span>
+*.apng
+
+<span class="hljs-comment"># Multiple-image Network Graphics</span>
+*.mng
+
+<span class="hljs-comment"># Tagged Image File Format</span>
+*.tiff
+*.tif
+
+<span class="hljs-comment"># Scalable Vector Graphics</span>
+*.svg
+*.svgz
+
+<span class="hljs-comment"># Portable Document Format</span>
+*.pdf
+
+<span class="hljs-comment"># X BitMap</span>
+*.xbm
+
+<span class="hljs-comment"># BMP</span>
+*.bmp
+*.dib
+
+<span class="hljs-comment"># ICO</span>
+*.ico
+
+<span class="hljs-comment"># 3D Images</span>
+*.3dm
+*.max
+</code></pre>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> You can also ignore a folder within your directory by specifying the path</li>
+</ul>
+<pre><code class="language-bash">dir_to_ignore/
+</code></pre>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Copy the above list and specify any directory within your work that you do not want uploading to GitHub (for instance, images/ video/ src/)</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> You should now notice GitHub Desktop has selected all the files it will commit</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Provide a summary title (for instance, commit of lab X files)</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Provide a short description (for instance, first commit of files using the git ignore process to remove any unwanted files to commit)</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Click 'Commit to main'</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> This prepares the files to commit</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Once complete you are now ready to 'push origin' which will upload the files into the repository specified</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Check your repo on <a href="https://github.com/">GitHub</a> you should notice all necessary files have been uploaded and your first commit was completed successfully</li>
+</ul>
+<h3 id="activity-2-integrating-github-workflow-in-visual-studio-code">Activity 2: Integrating GitHub workflow in Visual Studio Code</h3>
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Using Windows File Explore, create a new directory inside this weeks folder</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Open Visual Studio Code</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Open the directory you have just created (File &gt; Open Folder)</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Navigate to 'Extensions' and search for GitHub</li>
+</ul>
+<img src="https://github.com/UCLanCSC/CSResources/blob/main/images/web-tech/Screenshot%202021-11-08%20114617.png?raw=true" alt="GitHub extensions in Visual Studio Code" >
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Click install, the source control functionality should now appear in the left-hand sidebar (nodes with branching icon)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Click 'Initialize Repository'</p>
+<blockquote>
+<p>This is now initialising the directory you have opened in Visual Studio Code</p>
+</blockquote>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Copy and paste the files from one of the lab to demonstrate changes to the directory - using Windows File Explorer</p>
+<blockquote>
+<p>You will notice in VSC that files have started to appear in the source control pane</p>
+<p><strong>Remember</strong>! Before you commit files to GitHub you need to perform 'flutter clean' in the terminal to remove any dependencies from your project else it will make the upload rather large</p>
+</blockquote>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Using the terminal (Terminal &gt; New Terminal)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Type notepad.gitignore &gt; (enter)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Follow any onscreen instructions to save the file</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Open the .gitignore file using Visual Studio Code (you will need to navigate to the files explorer in VSC)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> The following tells GitHub to ignore all files with the extensions listed</p>
+</li>
+</ul>
+<pre><code class="language-bash"><span class="hljs-comment"># JPEG</span>
+*.jpg
+*.jpeg
+*.jpe
+*.jif
+*.jfif
+*.jfi
+
+<span class="hljs-comment"># JPEG 2000</span>
+*.jp2
+*.j2k
+*.jpf
+*.jpx
+*.jpm
+*.mj2
+
+<span class="hljs-comment"># JPEG XR</span>
+*.jxr
+*.hdp
+*.wdp
+
+<span class="hljs-comment"># Graphics Interchange Format</span>
+*.gif
+
+<span class="hljs-comment"># RAW</span>
+*.raw
+
+<span class="hljs-comment"># Web P</span>
+*.webp
+
+<span class="hljs-comment"># Portable Network Graphics</span>
+*.png
+
+<span class="hljs-comment"># Animated Portable Network Graphics</span>
+*.apng
+
+<span class="hljs-comment"># Multiple-image Network Graphics</span>
+*.mng
+
+<span class="hljs-comment"># Tagged Image File Format</span>
+*.tiff
+*.tif
+
+<span class="hljs-comment"># Scalable Vector Graphics</span>
+*.svg
+*.svgz
+
+<span class="hljs-comment"># Portable Document Format</span>
+*.pdf
+
+<span class="hljs-comment"># X BitMap</span>
+*.xbm
+
+<span class="hljs-comment"># BMP</span>
+*.bmp
+*.dib
+
+<span class="hljs-comment"># ICO</span>
+*.ico
+
+<span class="hljs-comment"># 3D Images</span>
+*.3dm
+*.max
+</code></pre>
+<ul class="contains-task-list">
+<li>
+<p>[ ]</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> You can also ignore a folder within your directory by specifying the path</p>
+</li>
+</ul>
+<pre><code class="language-bash">dir_to_ignore/
+</code></pre>
+<ul class="contains-task-list">
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Copy the above list and specify any directory within your work that you do not want uploading to GitHub (for instance, images/ video/ src/)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Save the file</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Navigate back to the Source Control pane (you will now notice the list of files is much smaller as you have told VSC to ignore the specified files)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Now you are ready to commit and publish (click the commit button denoted using a tick icon)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Click 'Always'</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Provide a message - this should be something meaningful for instance, 'Learning how to integrate GitHub into my workflow for CO2509' &gt; (enter)</p>
+<blockquote>
+<p>The files are now prepared ready to be published</p>
+</blockquote>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Click 'Publish Changes'</p>
+<blockquote>
+<p>GitHub will need to authenticate the user. You should do this by clicking Allow.</p>
+</blockquote>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> This will open the web browser, click 'Allow'</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Then login using your GitHub credentials created in lab 2</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Once authenticated click 'Authorize github'</p>
+<blockquote>
+<p>You have now linked VSC with GitHub</p>
+</blockquote>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Copy the token presented to you in case you need it</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Open in Github Desktop &gt; Open (allow an extension to open this URI)</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> VSC will prompt you for creating a public and private repository</p>
+<blockquote>
+<p>public means other people can see your code.</p>
+<p>private is where the repository is kept private and no one without access can view the files.</p>
+</blockquote>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> VSC may prompt you to supply the token (you copied) paste this into the connect to GitHub window &gt; Sign in</p>
+</li>
+<li class="task-list-item enabled">
+<p><input class="task-list-item-checkbox"type="checkbox"> Verify the files have been published to your <a href="https://github.com/">GitHub</a> account</p>
+</li>
+</ul>
+<h3 id="conclusion">Conclusion</h3>
+<p>You should now have the understanding on how to integrate GitHub into your workflow. You will have either integrated it using the bespoke Desktop application or directly into VSC. You will be expected to use GitHub in your assessment in order to achieve the higher marks in the assessment. We are expecting to see regular meaningful commits throughout your journey whilst developing the project. If you have any questions on GitHub or how GitHub is used in industry please let your tutor know.</p>
+
+        
+        
+    </body>
+    </html>
