@@ -1,0 +1,605 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>ideation</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><span class='md-image'><img  align="right" src="https://github.com/UCLanCSC/CSResources/blob/main/images/general/logo.jpg?raw=true" style="zoom:10%" /></span></p><h1 id='co4907-prototyping-and-evaluation'><span>CO4907: Prototyping and Evaluation</span></h1><h3 id='lab-ideation'><span>Lab: Ideation</span></h3><blockquote><p><strong><span>Remember</span></strong><span> labs often follow on from the lectures. If you are stuck you should review your lecture notes, slides or recording as essential information is contained in the topics you learn week on week. Practical work (labs and coursework) will require you to review past lectures and online materials, and books as you will be required to assimilate and ground this knowledge over time. </span></p></blockquote><p>&nbsp;</p><h2 id='summary'><span>Summary</span></h2><p><span>By now you should have identified the problem space you are attempting to explore in this module. You will start to generate solutions to the problem - this is the process known as divergent thinking. You will begin to narrow down these solutions, ready for prototyping. By the end of the session, you will have decided upon where your focus will be - convergent thinking.   </span></p><h2 id='aim'><span>Aim</span></h2><p><span>This session aims to further your knowledge and understanding of the ideation process. You will begin to realise your problem space and begin to ideate possible solutions. By understanding your users in more depth, you start to appreciate what issues your users have with a particular problem. So far you have been thinking about problems and solutions using texts, by the end of the session you will have visualised solutions ready for building on the creative process next week. </span></p><p>&nbsp;</p><h2 id='objectives'><span>Objectives</span></h2><p><span>This session aims to achieve the following objective(s) below:</span></p><p><strong><span>O.1</span></strong><span>: Begin the process of formalising ideas to solve problems</span></p><p><strong><span>O.2:</span></strong><span> Practice methods for ideation - shifting from text to visual communication</span></p><p>&nbsp;</p><h2 id='intended-learning-outcome'><span>Intended Learning Outcome</span></h2><p><span>This lab intends to contribute towards achieving ILOs 1 and 3. &quot;Design appropriate solutions to real-world problems through prototyping&quot; and &quot;Demonstrate an awareness of industry practices following a UX strategy and process&quot;</span></p><p>&nbsp;</p><h2 id='introduction'><span>Introduction</span></h2><p><span>By now, you should have reframed your problem. You will have a collection of HMWs that have been decided on using the &#39;How, Now, Wow Matrix&#39;. Your decisions should have been made about the area you are wanting to explore. From here you will have created an initial mind map to set out what are the knowns/unknowns of the problem space identified. </span></p><p><span>If not, do not continue with this activity. Please go back to the previous weeks as the following activities assume you have the problem space identified. In today&#39;s session, you will start to understand your users. </span></p><h2 id='activities'><span>Activities</span></h2><blockquote><p><span>Each week through completing the lab activities you will build up all the required knowledge to contribute towards the prototype assessment, you are however expected to continue this through independent learning. In some instances, the activities will highlight what you should continue through independent learning.</span></p><p><strong><span>Remember</span></strong><span>: Each week you will be building on existing work, as it is your space you might want to use titles so you can remember what segments of work relate to which part of the process.</span></p></blockquote><p>&nbsp;</p><h3 id='activity-1-recap'><span>Activity 1. Recap</span></h3><p><em><span>0-10 minutes</span></em></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Spend the first 10 minutes recapping where you last left off in the ideation process</span></p><p>&nbsp;</p></li></ul><hr /><h3 id='activity-2-deciding'><span>Activity 2. Deciding</span></h3><p><em><span>10-35 minutes</span></em><span> </span></p><p><span>Making decisions is always a difficult task whether you are deciding on your own or as part of a team. The methods you will adopt differ depending on your circumstances. Deciding in groups is much easier than on your own. When you are on your own you need to remove bias from the ideas, they are all your ideas and you need to focus on what brings the most to solve the problem within your constraints.</span></p><p><span>Independently (on your own)</span></p><ul><li><p><span>Decision matrix</span></p></li></ul><p><span>Group (team or stakeholders)</span></p><ul><li><p><span>Dot voting</span></p></li></ul><p><span>If you are deciding on your own you should attempt to elicit as much external feedback as possible through friends/family, stakeholders and end users.</span></p><p><span>A decision matrix is made up of two axes that you would like to measure your question/idea against. These could be: </span></p><ol start='' ><li><p><span>Feasibility </span></p></li><li><p><span>Cost</span></p></li><li><p><span>Novelty</span></p></li><li><p><span>Time </span></p></li><li><p><span>Etc…</span></p></li></ol><p><span>Essentially these can be anything you want to measure your ideas against. </span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Using the decision matrix (copy and paste it into your space), decide on two measures to measure your HMW questions against. For example, Feasibility and Time - you would have high/low feasibility and short/long term</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Plot your HMW questions on this decision matrix. This will help you prioritise which problem (question) to start with </span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>For example, for each question ask yourself what is the </span><em><span>feasibility</span></em><span> of solving the question in this module&#39;s assignment and </span><em><span>how long</span></em><span> will it take to solve </span></p></li></ul><p><span>Once you have mapped all your HMW questions onto the decision matrix, you should have all HMW in some/all of the quadrants.</span></p><p><span>Depending on your measurement criteria you are looking for the HMW questions that fall into the shorter term and high feasibility as this means you can complete the work within a good time frame and you have the skills to do so. If you are stuck with this activity speak to your tutor.</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>See the example for the How, Now, Wow Matrix in the tutoring space. As you will see you mark up the matrix with How, Now, and Wow. The questions you should be focussing on are contained in the &#39;Now&#39;. However, you should keep a close eye on the &#39;How&#39; as these need a little more context. The &#39;Wow&#39; is probably a little over-ambitious for the timescale you have. Finally, the questions located in the empty quadrant are probably not big/complex enough for a Sprint or not worth solving right now.</span></p></li><li><p><span>Depending on your vision, typically you are looking for ones in the ‘</span><em><span>Now</span></em><span>’ quadrant because these are the easy wins (low risk, high gain)</span></p></li><li><p><span>The ‘</span><em><span>Wow</span></em><span>’ needs more data – it might be too soon for your customers and your business to manage it (it is innovative, breakthrough)</span></p></li><li><p><em><span>How</span></em><span>’ requires more exploration due to its complexity (green idea for tomorrow) </span></p></li></ul><p><span>If you are working as a team, you could use the dot voting technique. </span></p><p><strong><span>Dot Voting</span></strong></p><ul><li><p><span>Dot Voting works best when you are working as part of a group. </span></p></li><li><p><span>Like the name suggests you are voting with dots (sticky dots to be precise).</span></p></li><li><p><span>Provide your group with dots and ask people to place dots on where they think you should focus your efforts. This provides a heat map of activity. </span></p></li></ul><blockquote><p><span>You should now be familiar with Miro, starting to build up your knowledge of the topic you are interested in exploring. In the next lab, you will continue with ideation by starting to frame/re-frame your problem and transforming these statements into questions that you can start to create possible solutions.</span></p></blockquote><h3 id='activity-3-understanding-your-users'><span>Activity 3. Understanding your users</span></h3><p><em><span>35-65 minutes</span></em></p><p><span>Before we start to solve the problem, we need to empathise with the user/customer. One of the ways we can do this is by mapping out the user&#39;s environment and demographics. You are following this template to start building your persona. </span></p><blockquote><p><strong><span>Remember</span></strong><span> personas are meaningful when they are data-driven. You create the persona based on data to inform your decisions. As these are responsive to data, there is a strong possibility that the persona will change over time, as the data changes. </span></p><p><a href='https://www.delve.ai/blog/data-driven-personas#:~:text=Behaviorally%20accurate%20information%3A,websites%20that%20possess%20such%20information.'><span>How to create data-driven personas</span></a></p></blockquote><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Title this stage as Understanding Users</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Using the &#39;Understanding your customer&#39; template in the Tutor notes section of Miro, copy and paste the template into your space</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Overlay post-it notes onto the template by answering the questions</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Start with the macro environment (negative and positive forces) - these are broader conditions outside of your control, examples include; economic, political, socio-cultural, technological, and ecological </span><a href='https://marketing-insider.eu/macro-environment/'><span>more information</span></a><span> </span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Move on to defining the demographic (who is this type of user?)</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>What headaches fears, hopes and opportunities exist for this demographic?</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>What is the need of this persona?</span></p></li></ul></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Define this persona with a name and role</span></p></li></ul></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Complete this activity for each user of your problem (you are expected to have at least two personas for the coursework submission)</span></p></li></ul><p>&nbsp;</p><hr /><h3 id='break'><span>Break</span></h3><p><em><span>65-75 minutes</span></em></p><p>&nbsp;</p><hr /><h3 id='activity-4-brain-dump'><span>Activity 4. Brain dump</span></h3><p><em><span>75-85 minutes</span></em><span> </span></p><p><span>The brain dump helps you consolidate your thinking into one space. At this point, you should not be adding new information/insights/ideas. You are simply pulling all your thinking together.</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Using the &#39;Brain dump&#39; template, complete the sections with specific details</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Bring together all your input so far and start to frame the problem and think about why you want to solve this problem - use your mind map, persona, HMW, reframed problem </span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Rewrite your problem statement</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Note the defined HWM question</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Review the persona </span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Provide details on what the problem is and how you might start to solve this problem  </span></p></li></ul></li></ul><p><span>You may feel like you are repeating yourself, but what you are doing is auditing your thinking. Consolidating your insights into a manageable scope.</span></p><p>&nbsp;</p><h3 id='activity-5-mind-mapping'><span>Activity 5. Mind Mapping</span></h3><p><em><span>85-115 minutes</span></em></p><p><span>Mind maps are visual diagrams used to represent words, ideas, tasks etc. They are arranged around a central problem. Colours, drawings, and brief notes are used to enrich the visualisation. </span></p><p><span>In the centre of this section add the problem you are looking to solve, add children to this node and draw connections between them (these child notes relate to the core problem), and drill down on the child nodes to expand the idea/solution. Create sub-branches for ideas related to the main branch. Select a template of a mind map from the container below this board, and move it into this area to populate, based on your problem statement.</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>From the &#39;Now&#39; quadrant take a copy of all the Post-it notes and create a mind map for each HMW question</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Start with the HMW question in the middle and build what you already know about the question, what you need to find out, what form a solution might look like etc. There are no rules as to what your mind map should include - you are trying to build a bigger picture of the problem </span></p><p><span>Miro has a Mind Map feature you can use to make it easier to map out. If you use the sidebar you will see two arrows pointing right &gt; click that and select &#39;Mind Map&#39;</span></p><p>&nbsp;</p></li></ul><hr /><p>&nbsp;</p><h2 id='independent-learning'><span>Independent Learning </span></h2><p><span>You are expected to continue this lab outside of the timetabled hours.</span></p><p>&nbsp;</p><h3 id='activity-6-crazy-8s'><span>Activity 6. Crazy-8s</span></h3><p><em><span>0-15 minutes</span></em></p><p><span>Crazy-8s are a core component of the Sprint process. It is a rapid sketching exercise that challenges you to sketch </span><em><span>eight</span></em><span> distinct ideas in </span><em><span>eight</span></em><span> minutes. This method uses divergent thinking to broaden thoughts about how you might start to solve your problem.</span></p><ul><li><p><span>Remember (distinct ideas)</span></p></li><li><p><span>Rough sketch (be quick)</span></p></li><li><p><span>No need for perfection</span></p></li><li><p><span>8 minutes - 1 minute per idea! be strict </span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Fold a piece of A4 paper in half and in half again to have 8 equal segments</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Crazy-8’s all about fast sketching. Where you will sketch 8 distinct ideas in 8 minutes</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>These ideas should be taken from your Braindump activity</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>The goal is to push beyond your first idea to generate a wide variety of solutions to your problem (divergent thinking)</span></p><p>&nbsp;</p></li></ul><hr /><h3 id='activity-7-decide'><span>Activity 7. Decide</span></h3><p><em><span>15-30 minutes</span></em></p><p><span>Now you have eight distinct sketched ideas it&#39;s time to review each idea holistically and make decisions on which idea (collection of ideas) should be the focus of this Sprint. </span></p><p><span>For this, we will use the ‘</span><em><span>Dot voting</span></em><span>’ method, where you can use sticky dots (or draw a dot) to make decisions on what elements of each idea you think are most appropriate in solving your problem. </span></p><p><span>You might want to involve your network in making these decisions – the more dots the better as this will produce a heat map of what looks promising. You can discuss your sketches with your cohort and tutors to elicit feedback.</span></p><p><span>Decide which ideas generated the most feedback</span></p><p><span>If dots were scattered around the Crazy-8, extract elements of the idea that is useful to consider (you can even cut out the idea/element from the paper)</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Capture the sketch and upload it to your Miro space </span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Present your sketches to your tutor and cohort to elicit feedback, you should present the sketches as they are and not add additional insights</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Ask the participant to use the dots to vote on what ideas they like most and/or what elements of ideas they like (dots have been prepared in the tutoring space, copy and paste a set into your space)</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Collect at least 5 sets of feedback </span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Use the dots to make a final decision</span></p><p>&nbsp;</p></li></ul><h3 id='activity-8-scamper'><span>Activity 8. SCAMPER</span></h3><p><em><span>30-60 minutes</span></em></p><p><span>Focussing on one of the Crazy-8 solutions, you are now going to perform SCRAMPER.</span></p><p><strong><span>Substitute</span></strong><span>: What can I substitute to make an improvement?</span>
+<strong><span>Combine</span></strong><span>: What ideas, features, processes, or components can I combine?</span>
+<strong><span>Adapt</span></strong><span>: What processes, features, or components should I adapt?</span>
+<strong><span>Modify</span></strong><span>: What can I make larger or make smaller?</span>
+<strong><span>Put to another use</span></strong><span>: What else can it be used for? Who else could use it?</span>
+<strong><span>Eliminate</span></strong><span>: What would happen if I removed a feature or part of it?</span>
+<strong><span>Reverse/rearrange</span></strong><span>: How can we rearrange the current status for an improved solution? What would happen by reversing the process?. </span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Make a decision on which of the Crazy-8s you wish to explore further (</span><strong><span>Hint!</span></strong><span>, use the How, Now, Wow matrix)</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Using the SCAMPER template (copy and paste into your areas)</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>With one of the ideas, populate the sections, by answering the questions above. For example in the first box, you are to substitute an element of your Crazy-8, you should give this substitution a title, description and a sketch. You can sketch within Miro or on paper and upload the photo.</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Perform SCAMPER for another idea within your Crazy-8</span></p></li></ul><p>&nbsp;</p><h3 id='activity-9-persona'><span>Activity 9. Persona</span></h3><p><em><span>60-80 minutes</span></em><span> </span></p><p><span>Now you have identified solutions and have completed the &#39;understanding your customer&#39; activity you are ready to formalise this in the shape of a persona. This person should directly relate to the solution you are proposing and the demographic you have built up. </span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Copy the persona template into your space</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Begin to consolidate your knowledge from the understanding of your user activity by thinking about your solutions and problem space</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Complete the persona activity for as many demographics you have identified </span></p></li></ul><p>&nbsp;</p><h3 id='activity-10-art-museum'><span>Activity 10. Art Museum</span></h3><p><em><span>80-110 minutes</span></em></p><p><span>Prepare your progress so far to share with the rest of the group. Doing so you will gain feedback from your tutor and support for next steps</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>
