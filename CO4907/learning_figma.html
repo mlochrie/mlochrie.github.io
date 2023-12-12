@@ -1,0 +1,599 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>learning_figma</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><span class='md-image'><img  align="right" src="https://github.com/UCLanCSC/CSResources/blob/main/images/general/logo.jpg?raw=true" style="zoom:10%" /></span></p><h1 id='co4907-prototyping-and-evaluation'><span>CO4907: Prototyping and Evaluation</span></h1><h3 id='lab-learning-figma'><span>Lab: Learning Figma</span></h3><blockquote><p><strong><span>Precursor:</span></strong><span> This lab is designed as a diagnostic assessment that aims to assess your current knowledge of Figma. This will be used to inform the design of further Figma labs to support your learning throughout the module. </span></p></blockquote><p>&nbsp;</p><h2 id='summary'><span>Summary</span></h2><p><span>This lab has been designed to introduce and assess your current understanding of Figma. Figma will be the tool we encourage you to use for your assignment. Figma is a powerful design tool that allows you to create and collaborate on designs for web, mobile, and other digital products. As you will be aware Figma is just one of many UX prototyping tools available and you </span><strong><span>are</span></strong><span> permitted to use any tool you are familiar with. </span></p><p>&nbsp;</p><h2 id='aim'><span>Aim</span></h2><p><span>This lab aims to provide you with the knowledge on how to get started building a high-fidelity prototype in Figma. You will learn the basics and be encouraged to explore further with advanced activities. By the end of the lab, you will be able to demonstrate how to build a prototype that provides a level of interactivity which will form the basis of your assignment. </span></p><p>&nbsp;</p><h2 id='objectives'><span>Objectives</span></h2><p><span>This lab aims to achieve the following objective(s) below:</span></p><p><strong><span>O.1</span></strong><span>: Assess current understanding of Figma </span></p><p><strong><span>O.2</span></strong><span>: Comprehend how to get started with the Figma interface</span></p><p><strong><span>O.3</span></strong><span>: Learn certain features of Figma that will provide the foundations for your assignment </span></p><p>&nbsp;</p><h2 id='intended-learning-outcome'><span>Intended Learning Outcome</span></h2><p><span>This lab intends to contribute towards achieving ILO 1. &quot;Design appropriate solutions to real-world problems through prototyping&quot;</span></p><p>&nbsp;</p><h2 id='introduction'><span>Introduction</span></h2><p><span>In this first lab session, you will begin to understand what Figma is and how you can build high-fidelity prototypes using it. You will start by learning the practical aspects of the module. To give you more time to work on your assignment. We will cover more depth of prototyping in the forthcoming lectures. </span></p><p><span>We will learn all about high-fidelity prototypes in the lectures but essentially a high-fidelity prototype refers to the level of detail in your prototype. They provide users with richer visuals, aesthetics and interactions. Like low-fidelity prototypes, high-fidelity prototypes focus on core features but are closer to the final look and feel. This module will focus on techniques for designing low- and high-fidelity prototypes in the forthcoming lectures and labs. In this phase of the process, you are creating perfect dev-ready assets; iconography, images, app icons etc. Agreed on colour scheme/branding and it&#39;s always a good idea to avoid Lorem Ipsum – you should attempt to use the language/communication your product will have -you are creating the assets required for your product (application) which will feature in the final developed version. The purpose of this prototype stage is to convince users that the prototype you are evaluating is a fully operational product. </span></p><p><span>For this module, we will provide you with tutorials and support with Figma. However, if you have the capacity you should explore other prototyping platforms such as:</span></p><ul><li><p><span>Adobe XD</span></p></li><li><p><span>UXPin</span></p></li><li><p><span>InVision</span></p></li><li><p><span>Sketch</span></p></li></ul><p>&nbsp;</p><blockquote><p><strong><a href='https://www.uxpin.com/pricing'><span>UXPin</span></a></strong></p><p><span>To gain an education license for UXPin you should sign up for a trial and then send UXPin a scan or a photo of your student ID so that they can verify your student status. Use our in-app chat that’s available from the Help menu in the bottom right corner of the editor.</span></p><p><span>I used the chat feature and my account was set up for a 1-year educational licence within 10 minutes.</span></p><p><strong><a href='https://www.figma.com/education/'><span>Figma</span></a></strong></p><p><span>Figma’s tools are easy to learn and beloved by professionals. Get verified to access their Education plan and get all of the paid perks of their Professional plan for free. First, sign up then </span><a href='https://www.figma.com/education/apply/'><span>verify</span></a><span> and you are on your way.</span></p></blockquote><p>&nbsp;</p><h2 id='activities'><span>Activities</span></h2><p><span>Over the next ten weeks, each week you will be presented with varying activities to support the creation and evaluation of a prototype. The first two weeks will introduce you to the basics of Figma to gain an understanding of what gaps you have for the development stage. You will be expected to continue this learning outside of the timetabled sessions to build up all the required knowledge to contribute towards the assessment. In some instances, the activities will highlight what you should continue through independent learning.</span></p><p>&nbsp;</p><h3 id='activity-1-getting-familiar-with-the-interface'><span>Activity 1. Getting Familiar with the Interface</span></h3><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Watch the </span><a href='https://msuclanac-my.sharepoint.com/:v:/g/personal/mlochrie_uclan_ac_uk/EQGd6qVH2BVEmfIY0iQjJjwBXTh9dDicS4ZgsbS981hEoA?e=4veZKb'><span>video</span></a><span> walkthrough to get familiar with the Figma UI and observe some of the basic features that are listed below. </span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Become familiar with the interface</span></p><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Create a new document: To create a new document, click on the &quot;Create New&quot; button in the top-left corner of the Figma homepage. From here, you can choose the type of document you want to create, such as a web design, mobile app, or icon set.</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Add layers: Layers are the building blocks of your design in Figma. To add a new layer, click on the &quot;Layers&quot; button on the left sidebar, and then click on the &quot;+&quot; button to add a new layer. You can also use the &quot;Layer&quot; menu in the top toolbar to add different types of layers, such as text, shapes, and images.</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Layers → every new element you add creates a layer automatically. You can rearrange layer by drag and drop.</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Use the toolbar: The toolbar at the top of the Figma interface contains all the tools you need to create your design. You can use the selection tool to select and move layers, the pen tool to draw freeform shapes, and the rectangle tool to create rectangles. You can also use the colour picker to change the colour of your layers, and the alignment tools to align your layers to each other.</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Use the canvas: The canvas is where you will do most of your design work in Figma. You can use the zoom and pan tools to navigate around the canvas, and you can use the rulers and grids to help you align your layers.</span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Export your design: Once you are happy with your design, you can export it by going to the &quot;File&quot; menu and selecting &quot;Export&quot;. From here, you can choose to export your design as an image, PDF, or HTML file.</span></p></li></ul></li></ul><blockquote><h3 id='additional'><span>Additional</span></h3><p><strong><span>Components</span></strong><span>: Components are reusable elements that you can use across different pages and frames in your document. You can create a component by selecting a layer or group of layers, and then clicking on the &quot;Create Component&quot; button in the top toolbar. Once you&#39;ve created a component, you can edit it in one place, and the changes will be reflected across all instances of the component.</span></p><p><strong><span>Styles</span></strong><span>: Styles allow you to define and apply consistent design elements across your document. There are different types of styles, such as text styles, color styles, and grid styles. You can create a new style by selecting a layer or group of layers, and then clicking on the &quot;Create Style&quot; button in the top toolbar. Once you&#39;ve created a style, you can apply it to other layers by selecting them and clicking on the desired style in the &quot;Styles&quot; panel.</span></p><p><strong><span>Auto-layouts</span></strong><span>: Auto-layouts allow you to create responsive designs that automatically adjust to different screen sizes. You can use auto-layouts to create flexible grids, align elements to the edges of the frame, and create responsive components. To use auto-layouts, you can use the &quot;Auto-Layout&quot; button in the top toolbar, and then set the constraints for each element.</span></p><p><strong><span>Plugins</span></strong><span>: Figma has a large library of plugins that you can use to extend the functionality of the tool. You can install plugins from the Figma website and use them to perform tasks such as generating design tokens, creating wireframes, and exporting designs to code.</span></p><p><strong><span>Collaboration</span></strong><span>: Figma allows you to collaborate with other designers in real-time and share your design with stakeholders. You can invite people to a file, give them edit access or view access, and use the commenting and prototyping tools to get feedback and test your design. You can also version control, and revert to previous versions of your design if needed.</span></p><p><strong><span>APIs</span></strong><span>: Figma has a set of APIs that you can use to automate and integrate with other tools. With the Figma API, you can programmatically access your design data, create new designs, and even generate code snippets.</span></p><p><strong><span>Design Systems</span></strong><span>: Design Systems are a set of design principles, guidelines, and components that are used consistently throughout a product. You can use Figma to create a design system by using symbols, styles, and auto-layouts to create a library of reusable components. This will help you to maintain consistency and efficiency across your designs.</span></p><p><strong><span>Advanced Auto-layouts</span></strong><span>: Auto-layouts are a powerful feature of Figma that allows you to create responsive designs. You can use advanced auto-layouts to create flexible grids, align elements to the edges of the frame, and create responsive components.</span></p><p><strong><span>Advanced prototyping</span></strong><span>: Figma has a range of prototyping tools that allow you to create interactive wireframes and mockups. You can use the advanced prototyping techniques to create animations, triggers, and micro-interactions.</span></p><p><strong><span>Advanced use of plugins</span></strong><span>: Plugins can be a great way to extend the functionality of Figma. You can use plugins to automate repetitive tasks, generate design tokens, and export designs to code.</span></p><p><strong><span>Advanced use of APIs</span></strong><span>: Figma&#39;s API allows you to programmatically access your design data and automate tasks. You can use the API to create custom integrations with other tools, such as creating a plugin for a specific task, or automating the export process.</span></p><p><strong><span>Workflow Automation</span></strong><span>: You can use a combination of techniques, plugins and API to automate your workflow, create custom scripts, or use third-party tools to automate repetitive tasks, such as generating design tokens, creating wireframes, and exporting designs to code.</span></p></blockquote><h3 id='activity-2-building-your-first-figma-prototype'><span>Activity 2. Building your first Figma Prototype</span></h3><p><span>In this activity, you are expected to build a simple two-view portfolio application to demonstrate your understanding of Figma. Portfolios are great ways to demonstrate your work to potential employers. </span></p><p><span>I have created an example I would like you to follow. </span></p><iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="400" height="800" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FjSDMVs9K0IA81RsmV8N2Fm%2FInstagram-redesign-(Community)%3Fpage-id%3D104%253A1139%26node-id%3D104%253A1140%26viewport%3D1204%252C756%252C0.86%26scaling%3Dscale-down%26starting-point-node-id%3D104%253A1140" allowfullscreen></iframe><ul><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Watch the following </span><a href='https://msuclanac-my.sharepoint.com/:v:/g/personal/mlochrie_uclan_ac_uk/Ebr7v0t6sChOvx4GFY-bkEgBK72nDI2TOjrt8kQe7YJpAg?e=2gi40E'><span>video</span></a><span> which will walk you through some of the features the prototype includes. Below is a list of support materials you might find useful </span></p></li><li class='md-task-list-item task-list-item task-list-not-done' ><input type='checkbox' /><p><span>Use the following </span><a href='https://www.figma.com/file/1N5ka2b8Z4Yu7bSFOQgPFw/Lab-1?node-id=0%3A1&amp;t=uVkLwOZG92H8XQgd-1'><span>template</span></a><span> to get started (assets for buttons have already been created as components)</span></p><ul><li><p><span>Resize layers scaling </span><a href='https://help.figma.com/hc/en-us/articles/360040451453-Resize-layers-with-the-scale-tool' target='_blank' class='url'>https://help.figma.com/hc/en-us/articles/360040451453-Resize-layers-with-the-scale-tool</a></p></li><li><p><span>Prototype scrolling </span><a href='https://help.figma.com/hc/en-us/articles/360039818734-Prototype-scrolling-with-overflow-behavior' target='_blank' class='url'>https://help.figma.com/hc/en-us/articles/360039818734-Prototype-scrolling-with-overflow-behavior</a></p></li><li><p><span>When to use Frames </span><a href='https://www.figma.com/best-practices/groups-versus-frames/frames/#:~:text=If%20you%20want%20the%20dimensions,option%20from%20the%20properties%20panel' target='_blank' class='url'>https://www.figma.com/best-practices/groups-versus-frames/frames/#:~:text=If%20you%20want%20the%20dimensions,option%20from%20the%20properties%20panel</a><span>.</span></p></li><li><p><span>Auto layout </span><a href='https://help.figma.com/hc/en-us/articles/360040451373-Explore-auto-layout-properties' target='_blank' class='url'>https://help.figma.com/hc/en-us/articles/360040451373-Explore-auto-layout-properties</a></p></li><li><p><span>Rounded corners </span><a href='https://help.figma.com/hc/en-us/articles/360050986854-Adjust-corner-radius-and-smoothing' target='_blank' class='url'>https://help.figma.com/hc/en-us/articles/360050986854-Adjust-corner-radius-and-smoothing</a></p></li></ul><blockquote><p><span>If you are struggling the lab tutor is permitted to help you.</span></p><p><span>Before the next session, you might want to watch the beginner&#39;s </span><a href='https://help.figma.com/hc/en-us/sections/4405269443991-Figma-for-Beginners-4-parts-'><span>Figma tutorials</span></a><span> </span></p></blockquote><p>&nbsp;</p></li></ul></div></div>
+</body>
+</html>
