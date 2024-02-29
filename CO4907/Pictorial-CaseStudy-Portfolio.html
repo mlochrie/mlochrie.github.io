@@ -1,0 +1,733 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+
+/* open-sans-italic - latin-ext_latin */
+
+/* open-sans-700 - latin-ext_latin */
+
+/* open-sans-700italic - latin-ext_latin */
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: justify;
+    text-justify: inter-word;
+    color: rgb(51, 51, 51);
+    line-height: 1.8;
+}
+
+#write {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+    #write {
+        max-width: 1024px;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    #write {
+        max-width: 1200px;
+    }
+}
+
+#write>ul:first-child,
+#write>ol:first-child {
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+    color: #283f59;
+}
+
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    /*border-bottom: 1px solid #283f59;*/
+}
+
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    /*border-bottom: 1px solid #283f59;*/
+}
+
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #283f59;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+
+ul,
+ol {
+    padding-left: 30px;
+}
+
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+
+
+/*blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}*/
+
+blockquote blockquote {
+    padding-right: 0;
+}
+
+table {
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr td {
+    vertical-align: top;
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    z-index: 1;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+    background-color: #f8f8f8;
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+    bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
+}
+
+#write>h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #283f59;
+    border-style: solid;
+    border-width: 1px;
+}
+
+
+/** focus mode */
+
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.footer-text {
+    line-height: 1;
+    font-size: small;
+    text-align: center;
+}
+
+.module-footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #283f59;
+    color: white;
+    z-index: 10;
+    border-top: 5px solid #eee;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.uclan-red {
+    color: #BE1622;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li:not(.md-task-list-item)::before {
+    content: "";
+    line-height: 1em;
+    width: .5em;
+    height: .5em;
+    background-color: #BE1622;
+    float: left;
+    margin: .60em .25em 0;
+    border-radius: 50%;
+}
+
+
+/*ul {
+    list-style: none;
+  }
+
+ul li:not(.md-task-list-item)::before {
+    content: "\2022";
+    color: #BE1622;
+}*/
+
+.md-task-list-item>input {
+    margin-left: -1.3em !important;
+    list-style: none;
+}
+
+.entry-content :not(.intro) {
+    color: #31cdf7;
+}
+
+blockquote blockquote {
+    border-left: 4px solid #283f59 !important;
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
+    padding: 0 15px;
+    color: #777777;
+}
+
+.uclan-border {
+    border: 1em solid #283f59;
+}
+
+blockquote {
+    border-left: 0.1em solid #e7e7e7 !important;
+    border-right: 0.1em solid #e7e7e7;
+    border-bottom: 0.1em solid #e7e7e7;
+    border-top: 0.1em solid #e7e7e7;
+    padding: 1em;
+}
+
+.anchor {
+    color: #283f59;
+}
+
+
+</style><title>Pictorial-CaseStudy-Portfolio</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><span class='md-image'><img  align="right" src="https://github.com/UCLanCSC/CSResources/blob/main/images/general/logo.jpg?raw=true" style="zoom:10%" /></span></p><h1 id='pictorial'><span>Pictorial</span></h1><p><span>You can think of your pictorial as an opportunity to start building up your portfolio of work. As you know the pictorial should be a visual journey of your work. </span></p><p><span>The following document, re-iterates the purpose of a pictorial and how these are similar to case studies in which you can build a portfolio from. Furthermore, the document will highlight some examples of case studies, portfolios and pictorials to support your learning. </span></p><h2 id='explanation'><span>Explanation</span></h2><p><span>Taken from </span><a href='https://idc.acm.org/2023/pictorials/'><span>IDC 2023</span></a><span> &quot;Pictorials are papers in which the visual components (e.g. diagrams, sketches, illustrations, renderings, photographs, annotated photographs, and collages) play a primary role in conveying ideas and research contributions in addition to the accompanying text. Pictorials leverage the power of visual communication with the effective use of visual languages and high-quality images. They may have a practical or theoretical nature or both.</span></p><p><span>Through Pictorials, researchers, practitioners, industry professionals, artists, designers, and students from various disciplines, including engineering, interaction design, computer science, product design, media studies, and the arts are encouraged to express and unpack their design practices and projects in visually rich ways.&quot; </span></p><p><span>As such, pictorials are equivalent contributions to tradition reports/papers in every way (e.g. production and academic standards, integrity, robustness, rigor and significance.   </span></p><p><span>&quot;Pictorials are meant to contribute to knowledge in themselves rather than merely document concepts, methods, and processes that we already know. Visual components can be contributions to design knowledge in and of themselves, as a form of making, but they should also be accompanied by a narrative that helps the audience understand what the knowledge contribution is. It is this scaffolding that transforms a Pictorial into research and guarantees that it can be treated as an argument in research discourse. At the same time, the textual narrative should be just that – a scaffolding to support the contribution of the visual content.&quot;</span></p><p><span>Some important points to consider when preparing your pictorials:</span></p><ul><li><p><span>Is the production value for the images and/or diagrams of high quality?</span></p></li><li><p><span>Are images/diagrams emphasised over text as the primary means of communicating the research contribution?</span></p></li><li><p><span>Does every image used in the Pictorial play a meaningful role and clearly present the idea on its own or with the support of text?</span></p></li><li><p><span>Does the placement of images and text compose a good narrative?&quot;</span></p></li></ul><p><span>Here are a sample of past student work</span></p><ul><li><p><a href='https://www.behance.net/gallery/185495851/UX-Away-from-Desktop-Enhanced-Movie-Ticketing-App'><span>Enhanced Movie Ticketing Mobile Application</span></a><span> </span></p></li><li><p><a href='https://www.robindcastro.com/loro-ux'><span>Grocery store reminder app</span></a></p></li></ul><h3 id='pictorial-examples'><span>Pictorial examples:</span></h3><ul><li><p><a href='http://mlochrie.github.io/CO4907/2901790.2901909.pdf'><span>publication example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/3196709.3196810.doc'><span>publication example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/3196709.3196810.pdf'><span>publication example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/ARway_Pictorial.pdf'><span>student example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/EncouragingActivePlayThroughARToys.pdf'><span>student example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/Flystance-_An_app_that_allows_air_travellers_to_travel_worry_free_during_their_journey_Reiner_Brito_Carvalho_.pdf'><span>student example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/G21002324_BounceApp.pdf'><span>student example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/Subscription_Management_App_Ikechukwu_Anyanwu_.pdf'><span>student example</span></a></p><p>&nbsp;</p></li></ul><h2 id='case-study'><span>Case Study</span></h2><p><span>A UX case study is a detailed account of a UX design project. It essentially tells the story of how a designer or team tackled a specific design problem and the outcome of their efforts.</span></p><p><span>Here are some key things to know about UX case studies:</span></p><ul><li><p><strong><span>Purpose:</span></strong><span> They serve several purposes, including showcasing a designer&#39;s skills and problem-solving approach, demonstrating the impact of design decisions, and providing valuable insights for others working in the UX field.</span></p></li><li><p><strong><span>Content</span></strong><span>:</span></p><p><span>They typically include sections outlining the:</span></p><ul><li><p><strong><span>Problem statement:</span></strong><span> What user pain point or challenge was the project trying to address?</span></p></li><li><p><strong><span>Designer&#39;s role:</span></strong><span> What were their specific responsibilities and contributions?</span></p></li><li><p><strong><span>Methodology:</span></strong><span> How did they approach the design process? This might involve user research, prototyping, testing, and iteration.</span></p></li><li><p><strong><span>Solution:</span></strong><span> What design solution was implemented, and how does it address the initial problem?</span></p></li><li><p><strong><span>Outcomes:</span></strong><span> What were the results and impact of the design? This could involve quantitative data like user metrics or qualitative feedback like testimonials.</span></p></li></ul></li><li><p><strong><span>Benefits:</span></strong><span> UX case studies can be valuable for both designers and potential employers or clients. They allow designers to share their work in a comprehensive and compelling way, while also helping potential employers or clients understand the designer&#39;s thought process and the value they can bring to a project.</span></p></li></ul><p><span>Overall, UX case studies are a powerful tool for showcasing the value of design and sharing knowledge within the UX community.</span></p><p><span>Case studies are a way to make your </span><a href='https://www.uxdesigninstitute.com/blog/ux-design-case-study/?campaignid=20774026720&amp;adgroupid=158577911987&amp;adid=680575919419&amp;utm_source=google&amp;utm_medium=cpc&amp;utm_term=&amp;utm_campaign=Search_T1B_UK_PDUX_Diploma_UX_Design_Dynamic_Ads&amp;hsa_cam=20774026720&amp;hsa_mt=&amp;hsa_ver=3&amp;hsa_src=g&amp;hsa_ad=680575919419&amp;hsa_net=adwords&amp;hsa_tgt=dsa-1683963560153&amp;hsa_acc=6247795550&amp;hsa_grp=158577911987&amp;hsa_kw=&amp;gad_source=1&amp;gclid=CjwKCAiA0PuuBhBsEiwAS7fsNfkr32lRcbj7a39EY8ushNBk11iE4HQhqX-BqHWEcRCB_oHxZi3pkRoCwcAQAvD_BwE'><span>portfolio stand out</span></a><span>. You think about the structure of your case study and what story you are aiming to tell. You can think of your pictorial as a case study in your journey throughout your learning. You will notice many similarities to the process in which we are following in </span><em><span>CO4907</span></em><span> and </span><em><span>CO4904</span></em><span>, where you define the problem space, understand users, develop </span><a href='https://medium.com/@purvashobhit/winning-the-heart-of-users-the-art-of-persona-based-ux-onboarding-0e6b03426d84'><span>personas</span></a><span>, empathise the process and discuss critical reflections on your work.</span></p><h2 id='portfolio'><span>Portfolio</span></h2><p><span>Below are a list of portfolios that demonstrate a UX process through case studies and demonstrations. </span></p><ul><li><p><a href='https://jeffshibasaki.com/work/linkedin'><span>Re-imagining LinkedIn</span></a></p></li><li><p><a href='https://jeffshibasaki.com/work/disney-plus'><span>Re-thinking the sign-up of Disney+</span></a></p></li><li><p><a href='https://mahimoto.com/talking-to-strangers'><span>Google translate 1</span></a></p></li><li><p><a href='https://mahimoto.com/a-fish-in-your-ear'><span>Google translate 2</span></a></p></li><li><p><a href='https://www.oliviatruong.design/ticket-manager'><span>Ticket manager to improve event ticketing</span></a><span> </span></p></li><li><p><a href='https://www.oliviatruong.design/universe-dashboard'><span>Event organisers dashboard for improving experiences</span></a></p></li><li><p><a href='https://www.dakarai.design/ux-case-study-designing-the-friend-zone-for-an-lgbtq-dating-app'><span>Dating App</span></a></p></li><li><p><a href='https://www.dakarai.design/ux-case-study-netflix-tv-recaps'><span>Netflix TV Recaps</span></a><span> - Coming soon</span></p></li><li><p><a href='https://www.dakarai.design/ux-case-study-shapescale-3d-body-scanner'><span>Prototype of a new you, 3D scanning</span></a></p></li><li><p><a href='https://www.behance.net/gallery/191014501/Buddy-Blast'><span>Buddy Blast</span></a></p></li><li><p><a href='https://www.behance.net/gallery/188879345/Enhanced-Movie-Review-Application_UX-Case-Study'><span>Movie review application</span></a></p></li><li><p><a href='https://www.robindcastro.com/stories-post/uolux-storyblog'><span>Improving the University of Liverpool&#39;s Website</span></a><span> / </span><a href='https://www.robindcastro.com/uol-ux'><span>process</span></a></p></li><li><p><a href='https://amnashphotography732.myportfolio.com/uclan-student-union-mobile-app'><span>UCLan SU Mobile App</span></a></p></li><li><p><a href='https://amnashphotography732.myportfolio.com/fit-buddy-your-partner-in-fitness-journey'><span>Designing Fit Buddy</span></a></p></li><li><p><a href='https://amnashphotography732.myportfolio.com/triloop-sustainability-living'><span>Sustainable Living App</span></a></p></li></ul></div></div>
+</body>
+</html>
