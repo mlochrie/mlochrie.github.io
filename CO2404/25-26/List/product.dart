@@ -49,11 +49,9 @@ class Product {
       name: json['name'] as String,
       description: json['description'] as String,
       price: (json['price'] as num).toDouble(),
-      choices: choicesJson != null
-          ? choicesJson
-                .map((e) => ProductChoice.fromJson(e as Map<String, dynamic>))
-                .toList()
-          : null,
+      choices: choicesJson
+          ?.map((e) => ProductChoice.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
   }
 }
