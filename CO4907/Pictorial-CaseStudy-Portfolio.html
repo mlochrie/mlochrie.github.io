@@ -1,11 +1,10 @@
 <!doctype html>
 <html>
 <head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-
-<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'><style type='text/css'>html {overflow-x: initial !important;}</style>
+<style type='text/css'  id="style-base">:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
 .mac-os-11 { --title-bar-height: 28px; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, "Segoe UI Emoji", "SF Pro", sans-serif; -webkit-font-smoothing: antialiased; }
 h1, h2, h3, h4, h5 { white-space: pre-wrap; }
 body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
 iframe { margin: auto; }
@@ -14,7 +13,7 @@ a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
 #write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
 #write.first-line-indent p { text-indent: 2em; }
-#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li p, #write.first-line-indent p *, #write.first-line-indent svg * { text-indent: 0px; }
 #write.first-line-indent li { margin-left: 2em; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
@@ -30,11 +29,15 @@ img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
 button, input, select, textarea { color: inherit; font: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
 *, ::after, ::before { box-sizing: border-box; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; position: relative; }
+#write svg h1, #write svg h2, #write svg h3, #write svg h4, #write svg h5, #write svg h6, #write svg p { position: static; }
+.nodeLabel p { padding-right: 2px; padding-left: 2px; }
+.typora-export .nodeLabel p { padding-right: 0px; padding-left: 0px; }
+foreignobject { overflow: visible; }
 p { line-height: inherit; }
 h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
 p { orphans: 4; }
+li p { orphans: 1; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.8rem; }
 h3 { font-size: 1.6rem; }
@@ -161,6 +164,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .md-fences.md-fences-math { font-size: 1em; }
 .md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
 .md-fences-advanced:not(.md-focus) { background: inherit; }
+.mermaid-svg { margin: auto; }
 .typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
 .typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
 .typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
@@ -218,62 +222,57 @@ mjx-container { break-inside: avoid; }
 .md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
 .md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
 
-
-:root {
+</style>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&amp;subset=latin,latin-ext' type='text/css' />
+<style type='text/css'  id="style-theme_css">:root {
     --side-bar-bg-color: #fafafa;
     --control-text-color: #777;
 }
 
-@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
 /* open-sans-regular - latin-ext_latin */
-
-/* open-sans-italic - latin-ext_latin */
-
-/* open-sans-700 - latin-ext_latin */
-
-/* open-sans-700italic - latin-ext_latin */
-
-html {
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-align: justify;
-    text-justify: inter-word;
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', 'SF Pro', sans-serif;
     color: rgb(51, 51, 51);
-    line-height: 1.8;
+    line-height: 1.6;
 }
 
 #write {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px;
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
     padding-bottom: 100px;
 }
 
 @media only screen and (min-width: 1400px) {
-    #write {
-        max-width: 1024px;
-    }
+	#write {
+		max-width: 1024px;
+	}
 }
 
 @media only screen and (min-width: 1800px) {
-    #write {
-        max-width: 1200px;
-    }
+	#write {
+		max-width: 1200px;
+	}
 }
 
-#write>ul:first-child,
-#write>ol:first-child {
+#write > ul:first-child,
+#write > ol:first-child{
     margin-top: 30px;
 }
 
 a {
     color: #4183C4;
 }
-
 h1,
 h2,
 h3,
@@ -287,7 +286,6 @@ h6 {
     line-height: 1.4;
     cursor: text;
 }
-
 h1:hover a.anchor,
 h2:hover a.anchor,
 h3:hover a.anchor,
@@ -295,51 +293,41 @@ h4:hover a.anchor,
 h5:hover a.anchor,
 h6:hover a.anchor {
     text-decoration: none;
-    color: #283f59;
 }
-
 h1 tt,
 h1 code {
     font-size: inherit;
 }
-
 h2 tt,
 h2 code {
     font-size: inherit;
 }
-
 h3 tt,
 h3 code {
     font-size: inherit;
 }
-
 h4 tt,
 h4 code {
     font-size: inherit;
 }
-
 h5 tt,
 h5 code {
     font-size: inherit;
 }
-
 h6 tt,
 h6 code {
     font-size: inherit;
 }
-
 h1 {
     font-size: 2.25em;
     line-height: 1.2;
-    /*border-bottom: 1px solid #283f59;*/
+    border-bottom: 1px solid #eee;
 }
-
 h2 {
     font-size: 1.75em;
     line-height: 1.225;
-    /*border-bottom: 1px solid #283f59;*/
+    border-bottom: 1px solid #eee;
 }
-
 
 /*@media print {
     .typora-export h1,
@@ -354,7 +342,7 @@ h2 {
         display: block;
         height: 100px;
         margin-top: -96px;
-        border-top: 1px solid #283f59;
+        border-top: 1px solid #eee;
     }
 }*/
 
@@ -362,34 +350,28 @@ h3 {
     font-size: 1.5em;
     line-height: 1.43;
 }
-
 h4 {
     font-size: 1.25em;
 }
-
 h5 {
     font-size: 1em;
 }
-
 h6 {
-    font-size: 1em;
+   font-size: 1em;
     color: #777;
 }
-
 p,
 blockquote,
 ul,
 ol,
 dl,
-table {
+table{
     margin: 0.8em 0;
 }
-
 li>ol,
 li>ul {
     margin: 0 0;
 }
-
 hr {
     height: 2px;
     padding: 0;
@@ -403,71 +385,57 @@ hr {
 li p.first {
     display: inline-block;
 }
-
 ul,
 ol {
     padding-left: 30px;
 }
-
 ul:first-child,
 ol:first-child {
     margin-top: 0;
 }
-
 ul:last-child,
 ol:last-child {
     margin-bottom: 0;
 }
-
-
-/*blockquote {
+blockquote {
     border-left: 4px solid #dfe2e5;
     padding: 0 15px;
     color: #777777;
-}*/
-
+}
 blockquote blockquote {
     padding-right: 0;
 }
-
 table {
     padding: 0;
     word-break: initial;
 }
-
 table tr {
-    border-top: 1px solid #dfe2e5;
+    border: 1px solid #dfe2e5;
     margin: 0;
     padding: 0;
 }
-
 table tr:nth-child(2n),
 thead {
     background-color: #f8f8f8;
 }
-
-table tr th {
+table th {
     font-weight: bold;
     border: 1px solid #dfe2e5;
     border-bottom: 0;
     margin: 0;
     padding: 6px 13px;
 }
-
-table tr td {
-    vertical-align: top;
+table td {
     border: 1px solid #dfe2e5;
     margin: 0;
     padding: 6px 13px;
 }
-
-table tr th:first-child,
-table tr td:first-child {
+table th:first-child,
+table td:first-child {
     margin-top: 0;
 }
-
-table tr th:last-child,
-table tr td:last-child {
+table th:last-child,
+table td:last-child {
     margin-bottom: 0;
 }
 
@@ -476,7 +444,7 @@ table tr td:last-child {
 }
 
 .code-tooltip {
-    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
     border-top: 1px solid #eef2f2;
 }
 
@@ -501,28 +469,28 @@ code {
     margin-top: 15px;
     padding-top: 8px;
     padding-bottom: 6px;
-    z-index: 1;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
 }
 
 @media print {
     html {
         font-size: 13px;
     }
-    table,
     pre {
         page-break-inside: avoid;
-    }
-    pre {
         word-wrap: break-word;
     }
 }
 
 .md-fences {
-    background-color: #f8f8f8;
+	background-color: #f8f8f8;
 }
-
 #write pre.md-meta-block {
-    padding: 1rem;
+	padding: 1rem;
     font-size: 85%;
     line-height: 1.45;
     background-color: #f7f7f7;
@@ -533,33 +501,29 @@ code {
 }
 
 .mathjax-block>.code-tooltip {
-    bottom: .375rem;
+	bottom: .375rem;
 }
 
 .md-mathjax-midline {
     background: #fafafa;
 }
 
-#write>h3.md-focus:before {
-    left: -1.5625rem;
-    top: .375rem;
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
 }
-
-#write>h4.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
 }
-
-#write>h5.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
 }
-
-#write>h6.md-focus:before {
-    left: -1.5625rem;
-    top: .285714286rem;
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
 }
-
 .md-image>.md-meta {
     /*border: 1px solid #ddd;*/
     border-radius: 3px;
@@ -573,9 +537,9 @@ code {
     opacity: 1;
 }
 
-.md-toc {
-    margin-top: 20px;
-    padding-bottom: 20px;
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
 }
 
 .sidebar-tabs {
@@ -589,27 +553,22 @@ code {
 
 #typora-quick-open-item {
     background-color: #FAFAFA;
-    border-color: #FEFEFE #e5e5e5 #e5e5e5 #283f59;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
     border-style: solid;
     border-width: 1px;
 }
 
-
 /** focus mode */
-
 .on-focus-mode blockquote {
     border-left-color: rgba(85, 85, 85, 0.12);
 }
 
-header,
-.context-menu,
-.megamenu-content,
-footer {
+header, .context-menu, .megamenu-content, footer{
     font-family: "Segoe UI", "Arial", sans-serif;
 }
 
 .file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state {
+.file-node-content:hover .file-node-open-state{
     visibility: visible;
 }
 
@@ -618,13 +577,17 @@ footer {
     background-color: var(--side-bar-bg-color);
 }
 
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
 .md-lang {
     color: #b4654d;
 }
 
-.html-for-mac .context-menu {
+/*.html-for-mac {
     --item-hover-bg-color: #E6F0FE;
-}
+}*/
 
 #md-notification .btn {
     border: 0;
@@ -632,6 +595,7 @@ footer {
 
 .dropdown-menu .divider {
     border-color: #e5e5e5;
+    opacity: 0.4;
 }
 
 .ty-preferences .window-content {
@@ -643,91 +607,16 @@ footer {
     background: #999;
 }
 
-.footer-text {
-    line-height: 1;
-    font-size: small;
-    text-align: center;
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
 }
+</style>
+<style type='text/css'  id="style-lp">ol, ul {padding-left: 40px}</style>
 
-.module-footer {
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #283f59;
-    color: white;
-    z-index: 10;
-    border-top: 5px solid #eee;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.uclan-red {
-    color: #BE1622;
-}
-
-ul {
-    list-style: none;
-}
-
-ul li:not(.md-task-list-item)::before {
-    content: "";
-    line-height: 1em;
-    width: .5em;
-    height: .5em;
-    background-color: #BE1622;
-    float: left;
-    margin: .60em .25em 0;
-    border-radius: 50%;
-}
-
-
-/*ul {
-    list-style: none;
-  }
-
-ul li:not(.md-task-list-item)::before {
-    content: "\2022";
-    color: #BE1622;
-}*/
-
-.md-task-list-item>input {
-    margin-left: -1.3em !important;
-    list-style: none;
-}
-
-.entry-content :not(.intro) {
-    color: #31cdf7;
-}
-
-blockquote blockquote {
-    border-left: 4px solid #283f59 !important;
-    border-bottom: none;
-    border-top: none;
-    border-right: none;
-    padding: 0 15px;
-    color: #777777;
-}
-
-.uclan-border {
-    border: 1em solid #283f59;
-}
-
-blockquote {
-    border-left: 0.1em solid #e7e7e7 !important;
-    border-right: 0.1em solid #e7e7e7;
-    border-bottom: 0.1em solid #e7e7e7;
-    border-top: 0.1em solid #e7e7e7;
-    padding: 1em;
-}
-
-.anchor {
-    color: #283f59;
-}
-
-
-</style><title>Pictorial-CaseStudy-Portfolio</title>
+<title>Pictorial-CaseStudy-Portfolio</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><p><span class='md-image'><img  align="right" src="https://github.com/UCLanCSC/CSResources/blob/main/images/general/logo.jpg?raw=true" style="zoom:10%" /></span></p><h1 id='pictorial'><span>Pictorial</span></h1><p><span>You can think of your pictorial as an opportunity to start building up your portfolio of work. As you know the pictorial should be a visual journey of your work. </span></p><p><span>The following document, re-iterates the purpose of a pictorial and how these are similar to case studies in which you can build a portfolio from. Furthermore, the document will highlight some examples of case studies, portfolios and pictorials to support your learning. </span></p><h2 id='explanation'><span>Explanation</span></h2><p><span>Taken from </span><a href='https://idc.acm.org/2023/pictorials/'><span>IDC 2023</span></a><span> &quot;Pictorials are papers in which the visual components (e.g. diagrams, sketches, illustrations, renderings, photographs, annotated photographs, and collages) play a primary role in conveying ideas and research contributions in addition to the accompanying text. Pictorials leverage the power of visual communication with the effective use of visual languages and high-quality images. They may have a practical or theoretical nature or both.</span></p><p><span>Through Pictorials, researchers, practitioners, industry professionals, artists, designers, and students from various disciplines, including engineering, interaction design, computer science, product design, media studies, and the arts are encouraged to express and unpack their design practices and projects in visually rich ways.&quot; </span></p><p><span>As such, pictorials are equivalent contributions to tradition reports/papers in every way (e.g. production and academic standards, integrity, robustness, rigor and significance.   </span></p><p><span>&quot;Pictorials are meant to contribute to knowledge in themselves rather than merely document concepts, methods, and processes that we already know. Visual components can be contributions to design knowledge in and of themselves, as a form of making, but they should also be accompanied by a narrative that helps the audience understand what the knowledge contribution is. It is this scaffolding that transforms a Pictorial into research and guarantees that it can be treated as an argument in research discourse. At the same time, the textual narrative should be just that – a scaffolding to support the contribution of the visual content.&quot;</span></p><p><span>Some important points to consider when preparing your pictorials:</span></p><ul><li><p><span>Is the production value for the images and/or diagrams of high quality?</span></p></li><li><p><span>Are images/diagrams emphasised over text as the primary means of communicating the research contribution?</span></p></li><li><p><span>Does every image used in the Pictorial play a meaningful role and clearly present the idea on its own or with the support of text?</span></p></li><li><p><span>Does the placement of images and text compose a good narrative?&quot;</span></p></li></ul><p><span>Here are a sample of past student work</span></p><ul><li><p><a href='https://www.behance.net/gallery/185495851/UX-Away-from-Desktop-Enhanced-Movie-Ticketing-App'><span>Enhanced Movie Ticketing Mobile Application</span></a><span> </span></p></li><li><p><a href='https://www.robindcastro.com/loro-ux'><span>Grocery store reminder app</span></a></p></li></ul><h3 id='pictorial-examples'><span>Pictorial examples:</span></h3><ul><li><p><a href='http://mlochrie.github.io/CO4907/2901790.2901909.pdf'><span>publication example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/3196709.3196810.doc'><span>publication example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/3196709.3196810.pdf'><span>publication example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/ARway_Pictorial.pdf'><span>student example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/EncouragingActivePlayThroughARToys.pdf'><span>student example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/Flystance-_An_app_that_allows_air_travellers_to_travel_worry_free_during_their_journey_Reiner_Brito_Carvalho_.pdf'><span>student example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/G21002324_BounceApp.pdf'><span>student example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/Subscription_Management_App_Ikechukwu_Anyanwu_.pdf'><span>student example</span></a></p><p>&nbsp;</p></li></ul><h2 id='case-study'><span>Case Study</span></h2><p><span>A UX case study is a detailed account of a UX design project. It essentially tells the story of how a designer or team tackled a specific design problem and the outcome of their efforts.</span></p><p><span>Here are some key things to know about UX case studies:</span></p><ul><li><p><strong><span>Purpose:</span></strong><span> They serve several purposes, including showcasing a designer&#39;s skills and problem-solving approach, demonstrating the impact of design decisions, and providing valuable insights for others working in the UX field.</span></p></li><li><p><strong><span>Content</span></strong><span>:</span></p><p><span>They typically include sections outlining the:</span></p><ul><li><p><strong><span>Problem statement:</span></strong><span> What user pain point or challenge was the project trying to address?</span></p></li><li><p><strong><span>Designer&#39;s role:</span></strong><span> What were their specific responsibilities and contributions?</span></p></li><li><p><strong><span>Methodology:</span></strong><span> How did they approach the design process? This might involve user research, prototyping, testing, and iteration.</span></p></li><li><p><strong><span>Solution:</span></strong><span> What design solution was implemented, and how does it address the initial problem?</span></p></li><li><p><strong><span>Outcomes:</span></strong><span> What were the results and impact of the design? This could involve quantitative data like user metrics or qualitative feedback like testimonials.</span></p></li></ul></li><li><p><strong><span>Benefits:</span></strong><span> UX case studies can be valuable for both designers and potential employers or clients. They allow designers to share their work in a comprehensive and compelling way, while also helping potential employers or clients understand the designer&#39;s thought process and the value they can bring to a project.</span></p></li></ul><p><span>Overall, UX case studies are a powerful tool for showcasing the value of design and sharing knowledge within the UX community.</span></p><p><span>Case studies are a way to make your </span><a href='https://www.uxdesigninstitute.com/blog/ux-design-case-study/?campaignid=20774026720&amp;adgroupid=158577911987&amp;adid=680575919419&amp;utm_source=google&amp;utm_medium=cpc&amp;utm_term=&amp;utm_campaign=Search_T1B_UK_PDUX_Diploma_UX_Design_Dynamic_Ads&amp;hsa_cam=20774026720&amp;hsa_mt=&amp;hsa_ver=3&amp;hsa_src=g&amp;hsa_ad=680575919419&amp;hsa_net=adwords&amp;hsa_tgt=dsa-1683963560153&amp;hsa_acc=6247795550&amp;hsa_grp=158577911987&amp;hsa_kw=&amp;gad_source=1&amp;gclid=CjwKCAiA0PuuBhBsEiwAS7fsNfkr32lRcbj7a39EY8ushNBk11iE4HQhqX-BqHWEcRCB_oHxZi3pkRoCwcAQAvD_BwE'><span>portfolio stand out</span></a><span>. You think about the structure of your case study and what story you are aiming to tell. You can think of your pictorial as a case study in your journey throughout your learning. You will notice many similarities to the process in which we are following in </span><em><span>CO4907</span></em><span> and </span><em><span>CO4904</span></em><span>, where you define the problem space, understand users, develop </span><a href='https://medium.com/@purvashobhit/winning-the-heart-of-users-the-art-of-persona-based-ux-onboarding-0e6b03426d84'><span>personas</span></a><span>, empathise the process and discuss critical reflections on your work.</span></p><h2 id='portfolio'><span>Portfolio</span></h2><p><span>Below are a list of portfolios that demonstrate a UX process through case studies and demonstrations. </span></p><ul><li><p><a href='https://jeffshibasaki.com/work/linkedin'><span>Re-imagining LinkedIn</span></a></p></li><li><p><a href='https://jeffshibasaki.com/work/disney-plus'><span>Re-thinking the sign-up of Disney+</span></a></p></li><li><p><a href='https://mahimoto.com/talking-to-strangers'><span>Google translate 1</span></a></p></li><li><p><a href='https://mahimoto.com/a-fish-in-your-ear'><span>Google translate 2</span></a></p></li><li><p><a href='https://www.oliviatruong.design/ticket-manager'><span>Ticket manager to improve event ticketing</span></a><span> </span></p></li><li><p><a href='https://www.oliviatruong.design/universe-dashboard'><span>Event organisers dashboard for improving experiences</span></a></p></li><li><p><a href='https://www.dakarai.design/ux-case-study-designing-the-friend-zone-for-an-lgbtq-dating-app'><span>Dating App</span></a></p></li><li><p><a href='https://www.dakarai.design/ux-case-study-netflix-tv-recaps'><span>Netflix TV Recaps</span></a><span> - Coming soon</span></p></li><li><p><a href='https://www.dakarai.design/ux-case-study-shapescale-3d-body-scanner'><span>Prototype of a new you, 3D scanning</span></a></p></li><li><p><a href='https://www.behance.net/gallery/191014501/Buddy-Blast'><span>Buddy Blast</span></a></p></li><li><p><a href='https://www.behance.net/gallery/188879345/Enhanced-Movie-Review-Application_UX-Case-Study'><span>Movie review application</span></a></p></li><li><p><a href='https://www.robindcastro.com/stories-post/uolux-storyblog'><span>Improving the University of Liverpool&#39;s Website</span></a><span> / </span><a href='https://www.robindcastro.com/uol-ux'><span>process</span></a></p></li><li><p><a href='https://amnashphotography732.myportfolio.com/uclan-student-union-mobile-app'><span>UCLan SU Mobile App</span></a></p></li><li><p><a href='https://amnashphotography732.myportfolio.com/fit-buddy-your-partner-in-fitness-journey'><span>Designing Fit Buddy</span></a></p></li><li><p><a href='https://amnashphotography732.myportfolio.com/triloop-sustainability-living'><span>Sustainable Living App</span></a></p></li></ul></div></div>
+<div id='write'  class=''><p><span class='md-image'><img  align="right" src="https://github.com/UCLanCSC/CSResources/blob/main/images/general/logo.png?raw=true" style="zoom:50%" /></span></p><h1 id='pictorial'><span>Pictorial</span></h1><p><span>You can think of your pictorial as an opportunity to start building up your portfolio of work. As you know the pictorial should be a visual journey of your work. </span></p><p><span>The following document, re-iterates the purpose of a pictorial and how these are similar to case studies in which you can build a portfolio from. Furthermore, the document will highlight some examples of case studies, portfolios and pictorials to support your learning. </span></p><h2 id='explanation'><span>Explanation</span></h2><p><span>Taken from </span><a href='https://idc.acm.org/2023/pictorials/'><span>IDC 2023</span></a><span> &quot;Pictorials are papers in which the visual components (e.g. diagrams, sketches, illustrations, renderings, photographs, annotated photographs, and collages) play a primary role in conveying ideas and research contributions in addition to the accompanying text. Pictorials leverage the power of visual communication with the effective use of visual languages and high-quality images. They may have a practical or theoretical nature or both.</span></p><p><span>Through Pictorials, researchers, practitioners, industry professionals, artists, designers, and students from various disciplines, including engineering, interaction design, computer science, product design, media studies, and the arts are encouraged to express and unpack their design practices and projects in visually rich ways.&quot; </span></p><p><span>As such, pictorials are equivalent contributions to tradition reports/papers in every way (e.g. production and academic standards, integrity, robustness, rigor and significance.   </span></p><p><span>&quot;Pictorials are meant to contribute to knowledge in themselves rather than merely document concepts, methods, and processes that we already know. Visual components can be contributions to design knowledge in and of themselves, as a form of making, but they should also be accompanied by a narrative that helps the audience understand what the knowledge contribution is. It is this scaffolding that transforms a Pictorial into research and guarantees that it can be treated as an argument in research discourse. At the same time, the textual narrative should be just that – a scaffolding to support the contribution of the visual content.&quot;</span></p><p><span>Some important points to consider when preparing your pictorials:</span></p><ul><li><p><span>Is the production value for the images and/or diagrams of high quality?</span></p></li><li><p><span>Are images/diagrams emphasised over text as the primary means of communicating the research contribution?</span></p></li><li><p><span>Does every image used in the Pictorial play a meaningful role and clearly present the idea on its own or with the support of text?</span></p></li><li><p><span>Does the placement of images and text compose a good narrative?&quot;</span></p></li></ul><p><span>Here are a sample of past student work</span></p><ul><li><p><a href='https://www.behance.net/gallery/185495851/UX-Away-from-Desktop-Enhanced-Movie-Ticketing-App'><span>Enhanced Movie Ticketing Mobile Application</span></a><span> </span></p></li><li><p><a href='https://www.robindcastro.com/loro-ux'><span>Grocery store reminder app</span></a></p></li></ul><h3 id='pictorial-examples'><span>Pictorial examples:</span></h3><ul><li><p><a href='http://mlochrie.github.io/CO4907/2901790.2901909.pdf'><span>publication example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/3196709.3196810.doc'><span>publication example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/3196709.3196810.pdf'><span>publication example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/ARway_Pictorial.pdf'><span>student example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/EncouragingActivePlayThroughARToys.pdf'><span>student example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/Flystance-_An_app_that_allows_air_travellers_to_travel_worry_free_during_their_journey_Reiner_Brito_Carvalho_.pdf'><span>student example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/G21002324_BounceApp.pdf'><span>student example</span></a></p></li><li><p><a href='http://mlochrie.github.io/CO4907/Subscription_Management_App_Ikechukwu_Anyanwu_.pdf'><span>student example</span></a></p><p>&nbsp;</p></li></ul><h2 id='case-study'><span>Case Study</span></h2><p><span>A UX case study is a detailed account of a UX design project. It essentially tells the story of how a designer or team tackled a specific design problem and the outcome of their efforts.</span></p><p><span>Here are some key things to know about UX case studies:</span></p><ul><li><p><strong><span>Purpose:</span></strong><span> They serve several purposes, including showcasing a designer&#39;s skills and problem-solving approach, demonstrating the impact of design decisions, and providing valuable insights for others working in the UX field.</span></p></li><li><p><strong><span>Content</span></strong><span>:</span></p><p><span>They typically include sections outlining the:</span></p><ul><li><p><strong><span>Problem statement:</span></strong><span> What user pain point or challenge was the project trying to address?</span></p></li><li><p><strong><span>Designer&#39;s role:</span></strong><span> What were their specific responsibilities and contributions?</span></p></li><li><p><strong><span>Methodology:</span></strong><span> How did they approach the design process? This might involve user research, prototyping, testing, and iteration.</span></p></li><li><p><strong><span>Solution:</span></strong><span> What design solution was implemented, and how does it address the initial problem?</span></p></li><li><p><strong><span>Outcomes:</span></strong><span> What were the results and impact of the design? This could involve quantitative data like user metrics or qualitative feedback like testimonials.</span></p></li></ul></li><li><p><strong><span>Benefits:</span></strong><span> UX case studies can be valuable for both designers and potential employers or clients. They allow designers to share their work in a comprehensive and compelling way, while also helping potential employers or clients understand the designer&#39;s thought process and the value they can bring to a project.</span></p></li></ul><p><span>Overall, UX case studies are a powerful tool for showcasing the value of design and sharing knowledge within the UX community.</span></p><p><span>Case studies are a way to make your </span><a href='https://www.uxdesigninstitute.com/blog/ux-design-case-study/?campaignid=20774026720&amp;adgroupid=158577911987&amp;adid=680575919419&amp;utm_source=google&amp;utm_medium=cpc&amp;utm_term=&amp;utm_campaign=Search_T1B_UK_PDUX_Diploma_UX_Design_Dynamic_Ads&amp;hsa_cam=20774026720&amp;hsa_mt=&amp;hsa_ver=3&amp;hsa_src=g&amp;hsa_ad=680575919419&amp;hsa_net=adwords&amp;hsa_tgt=dsa-1683963560153&amp;hsa_acc=6247795550&amp;hsa_grp=158577911987&amp;hsa_kw=&amp;gad_source=1&amp;gclid=CjwKCAiA0PuuBhBsEiwAS7fsNfkr32lRcbj7a39EY8ushNBk11iE4HQhqX-BqHWEcRCB_oHxZi3pkRoCwcAQAvD_BwE'><span>portfolio stand out</span></a><span>. You think about the structure of your case study and what story you are aiming to tell. You can think of your pictorial as a case study in your journey throughout your learning. You will notice many similarities to the process in which we are following in </span><em><span>CO4907</span></em><span> and </span><em><span>CO4904</span></em><span>, where you define the problem space, understand users, develop </span><a href='https://medium.com/@purvashobhit/winning-the-heart-of-users-the-art-of-persona-based-ux-onboarding-0e6b03426d84'><span>personas</span></a><span>, empathise the process and discuss critical reflections on your work.</span></p><h2 id='portfolio'><span>Portfolio</span></h2><p><span>Below are a list of portfolios that demonstrate a UX process through case studies and demonstrations. </span></p><ul><li><p><a href='https://jeffshibasaki.com/work/linkedin'><span>Re-imagining LinkedIn</span></a></p></li><li><p><a href='https://jeffshibasaki.com/work/disney-plus'><span>Re-thinking the sign-up of Disney+</span></a></p></li><li><p><a href='https://mahimoto.com/talking-to-strangers'><span>Google translate 1</span></a></p></li><li><p><a href='https://mahimoto.com/a-fish-in-your-ear'><span>Google translate 2</span></a></p></li><li><p><a href='https://www.oliviatruong.design/ticket-manager'><span>Ticket manager to improve event ticketing</span></a><span> </span></p></li><li><p><a href='https://www.oliviatruong.design/universe-dashboard'><span>Event organisers dashboard for improving experiences</span></a></p></li><li><p><a href='https://www.dakarai.design/ux-case-study-designing-the-friend-zone-for-an-lgbtq-dating-app'><span>Dating App</span></a></p></li><li><p><a href='https://www.dakarai.design/ux-case-study-netflix-tv-recaps'><span>Netflix TV Recaps</span></a><span> - Coming soon</span></p></li><li><p><a href='https://www.dakarai.design/ux-case-study-shapescale-3d-body-scanner'><span>Prototype of a new you, 3D scanning</span></a></p></li><li><p><a href='https://www.behance.net/gallery/191014501/Buddy-Blast'><span>Buddy Blast</span></a></p></li><li><p><a href='https://www.behance.net/gallery/188879345/Enhanced-Movie-Review-Application_UX-Case-Study'><span>Movie review application</span></a></p></li><li><p><a href='https://www.robindcastro.com/stories-post/uolux-storyblog'><span>Improving the University of Liverpool&#39;s Website</span></a><span> / </span><a href='https://www.robindcastro.com/uol-ux'><span>process</span></a></p></li><li><p><a href='https://amnashphotography732.myportfolio.com/uclan-student-union-mobile-app'><span>UCLan SU Mobile App</span></a></p></li><li><p><a href='https://amnashphotography732.myportfolio.com/fit-buddy-your-partner-in-fitness-journey'><span>Designing Fit Buddy</span></a></p></li><li><p><a href='https://amnashphotography732.myportfolio.com/triloop-sustainability-living'><span>Sustainable Living App</span></a></p></li></ul></div></div>
 </body>
 </html>
