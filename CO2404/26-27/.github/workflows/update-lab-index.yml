@@ -1,0 +1,52 @@
+name: Update Lab Index
+
+on:
+  push:
+    paths:
+      - 'CO2404/26-27/labs/_labs/*.html'
+
+permissions:
+  contents: write
+
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate index.html
+        run: |
+          cat > CO2404/26-27/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>CO2404 Labs</title>
+          </head>
+          <body>
+              <h1>CO2404 Labs</h1>
+              <ul>
+          EOF
+
+          for file in CO2404/26-27/labs/*.html
+          do
+            name=$(basename "$file")
+            echo "<li><a href=\"_labs/$name\">$name</a></            >> CO2404/26-27/labs/index.html
+          done
+
+          cat >> CO2404/26-27/labs/index.html << 'EOF'
+              </ul>
+          </body>
+          </html>
+          EOF
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add CO2404/26-27/labs/index.html
+
+          git diff --cached --quiet || git commit -m "Update lab index"
+
+          git push
