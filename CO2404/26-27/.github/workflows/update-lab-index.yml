@@ -3,7 +3,7 @@ name: Update Lab Index
 on:
   push:
     paths:
-      - 'CO2404/26-27/labs/_labs/*.html'
+      - 'CO2404/26-27/labs/*.html'
 
 permissions:
   contents: write
@@ -17,10 +17,11 @@ jobs:
 
       - name: Generate index.html
         run: |
-          cat > CO2404/26-27/index.html << 'EOF'
+          cat > CO2404/26-27/labs/index.html << 'EOF'
           <!DOCTYPE html>
           <html>
           <head>
+              <meta charset="utf-8">
               <title>CO2404 Labs</title>
           </head>
           <body>
@@ -31,7 +32,16 @@ jobs:
           for file in CO2404/26-27/labs/*.html
           do
             name=$(basename "$file")
-            echo "<li><a href=\"_labs/$name\">$name</a></            >> CO2404/26-27/labs/index.html
+
+            # Skip the generated index itself
+            if [ "$name" = "index.html" ]; then
+              continue
+            fi
+
+            title=$(basename "$file" .html | sed 's/_/ /g')
+
+            echo "<li><a href=\"$name</a></li>" \
+              >> CO2404/26-27/labs/index.html
           done
 
           cat >> CO2404/26-27/labs/index.html << 'EOF'
@@ -45,8 +55,4 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git add CO2404/26-27/labs/index.html
-
-          git diff --cached --quiet || git commit -m "Update lab index"
-
-          git push
+          git add CO2404
