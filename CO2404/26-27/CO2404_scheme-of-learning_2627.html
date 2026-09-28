@@ -1,0 +1,622 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'><style type='text/css'>html {overflow-x: initial !important;}</style>
+<style type='text/css'  id="style-base">:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, "Segoe UI Emoji", "SF Pro", sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p *, #write.first-line-indent svg * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+img:not([height]) { height: auto; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+svg sub, svg sup { position: static; }
+.nodeLabel p { padding-right: 2px; padding-left: 2px; }
+.typora-export .nodeLabel p { padding-right: 0px; padding-left: 0px; }
+foreignobject { overflow: visible; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+li p { orphans: 1; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; position: relative; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.mermaid-svg { margin: auto; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+</style>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&amp;subset=latin,latin-ext' type='text/css' />
+<style type='text/css'  id="style-theme_css">:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', 'SF Pro', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+</style>
+<style type='text/css'  id="style-lp">ol, ul {padding-left: 40px}</style>
+
+<title>CO2404_scheme-of-learning_2627</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><span class='md-image'><img  align="right" src="https://github.com/UCLanCSC/CSResources/blob/main/images/general/logo.png?raw=true" style="zoom:50%" /></span></p><h1 id='co2404-cross-platform-development'><span>CO2404: Cross-Platform Development </span></h1><h2 id='scheme-of-learning'><span>Scheme of Learning</span></h2><p><strong><span>Module Leader:</span></strong><span> Dr. Mark Lochrie (</span><a href='mailto:MLochrie@lancashire.ac.uk'><span>MLochrie@lancashire.ac.uk</span></a><span>)</span></p><figure class='table-figure'><table><thead><tr><th><strong><span>Module Title</span></strong></th><th><span>Cross-Platform Development</span></th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr></thead><tbody><tr><td><strong><span>Module Code</span></strong></td><td><span>CO2404</span></td><td><strong><span>Weeks</span></strong></td><td><span>19</span></td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><strong><span>Course(s)</span></strong></td><td><span>Software Engineering (C), </span><br /><span>Computing (O Y3), </span><br /><span>Computer Science (O Y3), </span><br /><span>Computer Games Development (O Y3)</span></td><td><strong><span>Credits</span></strong></td><td><span>20</span></td><td><strong><span>Delivery</span></strong></td><td><span>Year long</span></td></tr><tr><td><strong><span>Assessment Deadlines </span></strong></td><td><strong><span>CWK1</span></strong><span>: 09.00 19/03/2027</span><br /><strong><span>EXM1</span></strong><span>: XX/XX/2026 - XX/XX/2027</span></td><td><strong><span>Level</span></strong></td><td><span>5</span></td><td><strong><span>Contact Hours</span></strong></td><td><span>50</span></td></tr></tbody></table></figure><p>&nbsp;</p><figure class='table-figure'><table><thead><tr><th><span>Week</span></th><th><span>Date w/c</span></th><th><span>Learning Activity</span></th><th><span>Curriculum/Content</span></th><th><span>Key topics</span></th><th><span>Teaching Strategy</span></th><th><span>LOs</span></th></tr></thead><tbody><tr><td><strong><span>Semester:</span></strong></td><td><strong><span>1</span></strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>1</span></td><td><span>02/10</span></td><td><strong><span>Lecture:</span></strong><span> Introduction</span></td><td><span>Teaching delivery, background into the module. </span><br /><span>Understand the module&#39;s aims, learning outcomes, assessment strategy, and curriculum breakdown.</span></td><td><span>Introduction, background to the module delivery and assessment.</span></td><td><span>Lecture, discussions, and hands-on exercises.</span></td><td><span>5</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span> Coursework debrief</span></td><td><span>Familiarity with the coursework brief</span></td><td><span>Coursework</span></td><td><span>Seminar discussion</span></td><td><span>1-4</span></td></tr><tr><td><span>2</span></td><td><span>09/10</span></td><td><strong><span>Lecture:</span></strong><span> Cross-platform Development, Development Environment</span></td><td><span>Compare iOS/Android development environments</span><br /><span>Understand modern application practices.</span><br/><span>Explore the Android development ecosystem.</span><br/><span>Learn why Flutter is adopted for this module.</span><br/><span>Familiarise with the Software Development Kit (SDK) for building Android applications using Flutter.</span><br/><span>Use Visual Studio Code (VSC) for programming.</span></td><td><span>Development Frameworks, SDK, Development Environment, Ecosystems.</span></td><td><span>Lecture, hands-on exercises, demonstrations, and discussions of development tools and practices.</span></td><td><span>5</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span>  Development Environment Setup</span></td><td><span>Checking out all aspects of the modern development environment is set up (SDKs, Emulator, IDE, Plugins)</span></td><td><span>Development environment, Hello World &gt; Counter App</span></td><td><span>Lab, demonstration, activity</span></td><td><span>1</span></td></tr><tr><td><span>3</span></td><td><span>16/10</span></td><td><strong><span>Lecture:</span></strong><span> Dart OOP</span></td><td><span>Introduction to OOP in Dart, recap on classes and an initial introduction to inheritance </span></td><td><span>Dart OOP, introduction and recap</span></td><td><span>Lecture, demonstrations</span></td><td><span>1</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span> </span></td><td><span>Familiarity of performing OOP in Dart, after the lab students will be able to create and use classes within their applications and begin to understanding the importance of inheritance within Flutter</span></td><td><span>Development environment, Dart OOP</span></td><td><span>Lab, demonstration, activity</span></td><td><span>1</span></td></tr><tr><td><span>4</span></td><td><span>23/10</span></td><td><strong><span>Lecture: </span></strong><span>UI Widgets</span></td><td><span>Understand how Flutter apps are built structurally and presentation-wise (MVP) Introduction into Widget trees, and how applications are built. Differentiate between stateless and stateful widgets.</span></td><td><span>Widget, trees, Stateful and Stateless Widgets, User Interface (positioning, layout, structure)</span></td><td><span>Lecture, hands-on exercises (creating Flutter UIs, focusing on layouts, input, and value widgets).</span></td><td><span>1, 2</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span> Learning UI</span></td><td><span>Exposure to the process of building a Flutter app using the Visual Studio Code environment. Introduce the building blocks of Flutter development. Provide a basic understanding of how Widgets work to build Flutter interfaces</span></td><td><span>Programming Widgets, Basic structure, Scaffold, Container</span></td><td><span>Lab, demonstration, activity</span></td><td><span>1, 2</span></td></tr><tr><td><strong><span>Half term</span></strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>5</span></td><td><span>06/11</span></td><td><strong><span>Lecture:</span></strong><span> UI Widgets Pt2</span></td><td><span>Identify and describe different types of UI layouts. Understand the use cases and design principles behind lists, grids, and tables. Evaluate the strengths and limitations of each layout type. Apply layout structures in designing user interfaces for web and mobile applications.</span></td><td><span>ListView, CardView, TableView, GridView</span></td><td><span>Lecture, practical exercises</span></td><td><span>1, 2</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong></td><td><span>In this lab, you’ve learned how to implement a List of items using the ListView.builder method. The application you build takes user input and adds this input into a dynamic list. The skills is advanced with the use of a map to transform the user input to ensure consistency across user input.</span></td><td><span>ListView .map</span></td><td><span>Lab, demonstration, activity</span></td><td><span>1, 2</span></td></tr><tr><td><span>6</span></td><td><span>13/11</span></td><td><strong><span>Lecture:</span></strong><span> Navigation</span></td><td><span>Develop interactive widgets using button tap handling. Design for navigation with various navigational widgets. Understand widget structure and positioning for effective mobile applications.</span></td><td><span>Positioning, Navigation: Stacks, Drawer, Tabs and Dialogs, routes.</span></td><td><span>Lecture, practical exercises and discussions comparing stateless and stateful widgets.</span></td><td><span>1, 2</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong></td><td><span>Synthesising the knowledge to date by building a mini application that relies on understanding Stateless and Stateful Widgets with navigational routing.</span></td><td><span>Navigation, Routing</span></td><td><span>Lab, demonstration, activity</span></td><td><span>1, 2</span></td></tr><tr><td><span>7</span></td><td><span>20/11</span></td><td><strong><span>Lecture:</span></strong><span> Styling</span></td><td><span>Understand the uses of State and Stateless Widgets. Build interfaces with various types of widgets. Style widgets for improved usability and presentation.</span></td><td><span>Stateful Widget Lifecycles (recap), ListView, GridView, MediaQuery, Responsive, Theme Class.</span></td><td><span>Lecture, focussing on styling techniques and best practices for Flutter apps, formative assessment.</span></td><td><span>1, 2</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong></td><td><span>Building User Interfaces. Provide practical knowledge of various Widgets to present information to users. Breakdown the understanding of styling mobile applications in efficient and effective ways</span></td><td><span>Styling, Themes</span></td><td><span>Lab, demonstration, activity</span></td><td><span>1, 2</span></td></tr><tr><td><span>8</span></td><td><span>27/11</span></td><td><strong><span>Lecture:</span></strong><span> Testing</span></td><td><span>Differentiate between debugging and testing code. Prepare test cases to ensure code performance. Use debugging statements to solve programming issues.</span></td><td><span>Unit test and Widget test, Debugging, DevTools, Breakpoints, Logs,</span></td><td><span>Lecture, introduce testing methodologies and tools. Provide opportunities for students to practice writing and running tests.</span></td><td><span>1</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span> Unit and Widget Testing</span></td><td><span>Exposure to the process testing and debugging Flutter apps. Introduce functions for creating Unit and Widget tests. Provide a basic understanding using DevTools in your development process.</span></td><td><span>Unit Test, Widget Test, Debugging</span></td><td><span>Lab, demonstration, activity</span></td><td><span>1</span></td></tr><tr><td><span>9</span></td><td><span>04/12</span></td><td><strong><span>Lecture:</span></strong><span> Design</span></td><td><span>Understand what design is and how it plays an important role in application development Become aware of the interaction modalities afforded to building software for mobile devices Familiarise yourself with User Interface design and principles to follow in order to design more usable, accessible and effective interfaces Learn the basics of heuristics to evaluate the effectiveness of the application/software.</span></td><td><span>Understanding users, good/bad design, heuristics, design principles, gulfs, interaction modalities.</span></td><td><span>Lecture, discussion, and case studies.</span></td><td><span>2, 3, 4</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong></td><td><span>Introduce design as a process to students, to provide practical knowledge of how to design for mobile. Underpin and evidence visions with standards commonly used in mobile interface design. Provide the necessary skills needed to contribute towards the practical and theoretical components of this module in the coursework and exam assessments</span></td><td><span>Design Principles, Heuristics, Referencing, Wireframe</span></td><td><span>Lab, project-based learning</span></td><td><span>2, 3, 4</span></td></tr><tr><td><span>10</span></td><td><span>11/12</span></td><td><strong><span>Lecture:</span></strong><span> Coursework support</span></td><td><span>Recap key aspects of S1</span></td><td><span>Coursework</span></td><td><span>Lecture, discussion</span></td><td><span>1-4</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span> Coursework Support</span></td><td><span>Encourage students to start the coursework and provide pace notes with the previous weeks knowledge and how they relates to the coursework and maps to the assessment criteria</span></td><td><span>Coursework</span></td><td><span>Studio lab</span></td><td><span>1-4</span></td></tr><tr><td><strong><span>Semester:</span></strong></td><td><strong><span>2</span></strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>11</span></td><td><span>22/01</span></td><td><strong><span>Lecture:</span></strong><span> Asynchronous Programming</span></td><td><span>Become aware of asynchronous programming in Flutter</span><br/><span>Understand the various elements to asynchronous programming in Dart</span><br/><span>Build on previous knowledge about Stateful Widgets with asynchronous programming</span></td><td><span>Asynchronous programming, Isolates, Event-loops, Futures, FutureBuilder, Await/Async and Streams.</span></td><td><span>Lectures, Lecture, code examples, exercises to reviewing how asynchronous programming is achieved in Flutter.</span></td><td><span>1</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span> Building Asynchronously</span></td><td><span>Build up the learning of writing asynchronous programs in Flutter.</span><br /><span>Reflect on the various approaches to writing asynchronous applications.</span></td><td><span>Async/Await, Future, FutureBuilder,</span></td><td><span>Lab, demonstration, activity</span></td><td><span>1</span></td></tr><tr><td><span>12</span></td><td><span>29/01</span></td><td><strong><span>Lecture:</span></strong><span> Parsing Data</span></td><td><span>Understand the basics of networking in Cross-platform applications. </span><br /><span>Develop an application that connects to an endpoint and receives data ready for parsing.</span><br /><span>Understand how to parse JSON data and present the result in a List Widget using a Data Model.</span></td><td><span>Parsing, Presenting data, error handling,</span></td><td><span>Lecture, code examples, and exercises to reinforce how this topic brings together the understanding of the assessment for mid-high marking criteria.</span></td><td><span>1</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span> Building with APIs</span></td><td><span>Build on previous lab activities by introducing how Flutter applications communicate with the Internet.</span><br /><span>Experiment with debugging API calls Integrate API calls and handling data in Flutter asynchronous applications</span></td><td><span>Data, API</span></td><td><span>Lab, demonstration, activity</span></td><td><span>1</span></td></tr><tr><td><span>13</span></td><td><span>05/02</span></td><td><strong><span>Lecture:</span></strong><span> Local Storage</span></td><td><span>Understand how to interact and handle data in mobile application workflows</span><br/><span>Gain insights into the various methods for handling data on mobile</span><br/><span>Appreciate the importance of data handling in modern </span><br/><span>Build up knowledge of writing mobile applications with a SharedPreferences and SQLite database for storing data.</span></td><td><span>Data interaction, local storage: SQLite, writing to file, shared preferences (key/value pairs), data models, database helpers.</span></td><td><span>Lecture, code examples, demonstrations, and exercises.</span></td><td><span>1</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span> Building with Local Data Interaction</span></td><td><span>Experiment with two types of data interaction with SharePreferences and SQFLite. </span><br /><span>Integrate data interaction into a cross-platform application.</span></td><td><span>Local storage, data handling, parsing</span></td><td><span>Lab, demonstration, activity</span></td><td><span>1</span></td></tr><tr><td><span>14</span></td><td><span>12/02</span></td><td><strong><span>Lecture:</span></strong><span> Cloud Storage</span></td><td><span>Understand the difference between local and server storage by focusing on examples of using the cloud to store data</span><br/><span>Appreciate the differences between SQL and NoSQL database types</span><br/><span>Gain insights into a method for storing data in the cloud</span><br/><span>Appreciate how both local and server storage is used interchangeably within mobile application development.</span><br/><span>Build up knowledge of writing mobile applications with storage, utilising Google’s Firebase</span><br/><span>Gain knowledge of building with Firebase Real Time Databases.</span></td><td><span>Server infrastructures, database infrastructures, MySQL, NoSQL, Firebase: Real time database, Firestore.</span></td><td><span>Lecture, code examples, demonstrations and exercises.</span></td><td><span>1</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span> Building with the Cloud</span></td><td><span>Experiment with two types of cloud storage.</span><br /><span>Use Firebase&#39;s Realtime database and Firestore</span></td><td><span>Cloud storage, data handling, parsing</span></td><td><span>Lab, demonstration, activity</span></td><td><span>1</span></td></tr><tr><td><strong><span>Half term</span></strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>15</span></td><td><span>26/02</span></td><td><strong><span>Lecture: </span></strong><span>Final checks</span></td><td><span>Understand how the coursework will be assessed with detailed grade banding explained, demonstrations of previous student work</span></td><td><span>Marking criteria</span></td><td><span>Lecture, grade banding examples</span></td><td><span>1</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span> Development Support</span></td><td><span>Coursework support</span></td><td><span>Coursework support</span></td><td><span>Studio lab</span></td><td><span>1-4</span></td></tr><tr><td><span>16 - 17</span></td><td><span>05/03</span></td><td><strong><span>Lecture:</span></strong><span> Coursework support</span></td><td><span>Recap key aspects of S2</span></td><td><span>Coursework</span></td><td><span>Lecture, discussion</span></td><td><span>1-4</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span> Coursework support</span></td><td><span>Coursework support /Exam revision guidance </span></td><td><span>Assessment support</span></td><td><span>Studio lab</span></td><td><span>1-4</span></td></tr><tr><td><span>18</span></td><td><span>19/03</span></td><td><strong><span>Lecture:</span></strong><span> Demonstration preparations</span></td><td><span>Demonstration preparation</span></td><td><span>Assessment marking</span></td><td>&nbsp;</td><td><span>1,2 3, 4</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span> Demonstrations</span></td><td><span>Demonstrations</span></td><td><span>Assessment marking</span></td><td>&nbsp;</td><td><span>1,2 3, 4</span></td></tr><tr><td><strong><span>Easter</span></strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>19</span></td><td><span>16/03</span></td><td><strong><span>Lecture:</span></strong><span> Revision</span></td><td><span>Exam revision practice  </span></td><td><span>Assessment support</span></td><td><span>Lecture, discussion</span></td><td><span>1-5</span></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td><strong><span>Lab:</span></strong><span> General feedback/forawrd</span></td><td><span>General coursework feedback/forward and exam practice</span></td><td><span>Coursework feedback and assessment support</span></td><td><span>Seminar, discussion</span></td><td><span>1-5</span></td></tr></tbody></table></figure><p>&nbsp;</p></div></div>
+</body>
+</html>
