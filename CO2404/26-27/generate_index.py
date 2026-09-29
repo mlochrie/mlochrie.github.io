@@ -1,8 +1,8 @@
 import os
 import html
 
-LABS_DIR = '26-27/labs'
-OUTPUT_FILE = '26-27/index.html'
+LABS_DIR = 'labs'
+OUTPUT_FILE = 'index.html'
 
 def generate_index():
     if not os.path.exists(LABS_DIR):
