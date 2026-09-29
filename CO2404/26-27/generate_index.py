@@ -9,7 +9,6 @@ def generate_index():
         print(f"Directory {LABS_DIR} not found.")
         return
 
-    # Get sorted list of files, ignoring hidden files
     files = sorted([f for f in os.listdir(LABS_DIR) if not f.startswith('.')])
 
     html_content = """<!DOCTYPE html>
@@ -36,7 +35,6 @@ def generate_index():
     for filename in files:
         file_path = os.path.join(LABS_DIR, filename)
         if os.path.isfile(file_path):
-            # Convert filename (e.g., flutter-widgets_ui.md) into a readable title
             title = filename.replace('-', ' ').replace('_', ' ').rsplit('.', 1)[0].title()
             html_content += f'        <li><a href="labs/{html.escape(filename)}">{html.escape(title)}</a> <code>({html.escape(filename)})</code></li>\n'
 
