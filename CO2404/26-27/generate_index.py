@@ -1,15 +1,20 @@
 import os
 import html
 
-LABS_DIR = 'labs'
-OUTPUT_FILE = 'index.html'
+# Automatically resolve paths relative to where this script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+LABS_DIR = os.path.join(SCRIPT_DIR, 'labs')
+OUTPUT_FILE = os.path.join(SCRIPT_DIR, 'index.html')
 
 def generate_index():
+    print(f"Looking for labs in: {LABS_DIR}")
+    
     if not os.path.exists(LABS_DIR):
-        print(f"Directory {LABS_DIR} not found.")
+        print(f"Error: Directory {LABS_DIR} does not exist.")
         return
 
     files = sorted([f for f in os.listdir(LABS_DIR) if not f.startswith('.')])
+    print(f"Found files: {files}")
 
     html_content = """<!DOCTYPE html>
 <html lang="en">
@@ -45,7 +50,8 @@ def generate_index():
 
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         f.write(html_content)
-    print(f"Successfully generated {OUTPUT_FILE}")
+    
+    print(f"Successfully wrote {len(html_content)} characters to {OUTPUT_FILE}")
 
 if __name__ == '__main__':
     generate_index()
