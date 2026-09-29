@@ -22,7 +22,7 @@ jobs:
           python-version: '3.10'
 
       - name: Generate Index Page
-        run: python generate_index.py
+        run: python CO2404/26-27/generate_index.py
 
       - name: Commit and push if changed
         run: |
