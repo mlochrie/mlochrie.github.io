@@ -1,0 +1,723 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'><style type='text/css'>html {overflow-x: initial !important;}</style>
+<style type='text/css'  id="style-base">:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, "Segoe UI Emoji", "SF Pro", sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p *, #write.first-line-indent svg * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+img:not([height]) { height: auto; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+svg sub, svg sup { position: static; }
+.nodeLabel p { padding-right: 2px; padding-left: 2px; }
+.typora-export .nodeLabel p { padding-right: 0px; padding-left: 0px; }
+foreignobject { overflow: visible; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+li p { orphans: 1; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; position: relative; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.mermaid-svg { margin: auto; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+</style>
+<style type='text/css'  id="style-codemirror">.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; border-image: initial !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right-width: medium; border-right-style: none; border-right-color: currentcolor; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right-width: medium; border-right-style: none; border-right-color: currentcolor; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+</style>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&amp;subset=latin,latin-ext' type='text/css' />
+<style type='text/css'  id="style-theme_css">:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', 'SF Pro', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+</style>
+<style type='text/css'  id="style-lp">ol, ul {padding-left: 40px}</style>
+
+<title>flutter_async_programming</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><span class='md-image'><img  align="right" src="https://github.com/UCLanCSC/CSResources/blob/main/images/general/logo.png?raw=true" style="zoom:50%" /></span></p><h1 id='co2404-cross-platform-development'><span>CO2404: Cross Platform Development</span></h1><h1 id='lab-asynchronous-programming'><span>Lab: Asynchronous Programming</span></h1><blockquote><p><strong><span>Remember:</span></strong><span> Labs often follow on from the lectures. If you are stuck, review your lecture notes, slides or recordings, as important information is introduced throughout the module. Practical work (labs and coursework) will require you to review past lecture materials, as you will be expected to build on this knowledge over time.</span></p><p><strong><span>Tutor sign-off:</span></strong><span> You will need to demonstrate your completed work to your tutor at the end of the session.</span></p></blockquote><hr /><h1 id='summary'><span>Summary</span></h1><p><span>By completing this lab, you should now be able to:</span></p><ul><li><p><span>Explain why asynchronous programming is needed in a single-threaded language such as Dart.</span></p></li><li><p><span>Write asynchronous functions using </span><code>Future</code><span>, </span><code>async</code><span> and </span><code>await</code><span>.</span></p></li><li><p><span>Add and use a package in a Flutter project.</span></p></li><li><p><span>Make an HTTP GET request to retrieve data from a web API.</span></p></li><li><p><span>Check the status code of a response before using the data.</span></p></li><li><p><span>Parse JSON data into a </span><code>List</code><span> of </span><code>Map</code><span> objects.</span></p></li><li><p><span>Display asynchronous data in the user interface using a </span><code>FutureBuilder</code><span>.</span></p></li><li><p><span>Present a list of data using </span><code>ListView.builder</code><span>, </span><code>ListTile</code><span> and </span><code>CircleAvatar</code><span>.</span></p></li><li><p><span>Transform data returned from an API so that it is suitable to present to the user.</span></p></li></ul><p><span>Asynchronous programming is a core skill for building cross-platform applications. These concepts will support future topics such as Streams, state management, databases and Firebase integration, and they are a key component of the higher-order features required in the coursework.</span></p><hr /><h1 id='aim'><span>Aim</span></h1><p><span>The lab aims to:</span></p><ol><li><p><span>Build up your understanding of writing asynchronous programs in Flutter.</span></p></li><li><p><span>Understand how an application retrieves data from a server using an API.</span></p></li><li><p><span>Practise adding and using external packages in a Flutter project.</span></p></li><li><p><span>Practise converting data returned from an API into a form that can be displayed in the user interface.</span></p></li><li><p><span>Reflect on the different approaches to writing asynchronous applications.</span></p></li></ol><hr /><h1 id='intended-learning-outcome'><span>Intended Learning Outcome</span></h1><p><span>This lab intends to contribute towards achieving ILO 1: Develop a cross-platform application for mobile using a modern development environment.</span></p><hr /><h1 id='introduction'><span>Introduction</span></h1><p><span>Mobile applications rarely work in isolation. Whether it is loading a news feed, signing in with an existing account or saving a score, most applications need to communicate with a server over the Internet. These requests take time, and the length of that time is not under the control of the application: it depends on the network, the server and the amount of data being requested.</span></p><p><span>Dart is a single-threaded language. If your application simply waited for a slow request to finish, all other code would be frozen, including the code that draws the screen and responds to the user&#39;s taps. To the user, the application would appear to have crashed. This is where asynchronous programming is used. Instead of waiting, the application starts the request, carries on with other work, and is notified when the result is ready.</span></p><p><span>In this lab you will build an application that retrieves data from a web API without freezing the user interface. You will begin with a simple </span><code>Future</code><span>, replace it with a real API call, process the JSON that is returned, and finally present the data to the user as a list of profiles.</span></p><p><span>The lab is structured so that each activity builds upon the previous one. By the end of the session you will have built an application that follows the same pattern used by many real-world applications: make a request, wait for the data, handle problems, and display the result.</span></p><blockquote><p><strong><span>Important:</span></strong><span> This lab is designed to measure your understanding of developing asynchronous applications in Flutter. You are expected to review the lecture materials and previous lab materials to support your work.</span></p></blockquote><hr /><h1 id='activities'><span>Activities</span></h1><p><span>This lab is constructed to give you practical experience of writing asynchronous code in Dart and using it to retrieve and display data in a Flutter application.</span></p><hr /><h1 id='1-lab-overview'><span>1. Lab Overview</span></h1><p><span>In this lab you will create one Flutter project and progressively develop it from a simulated asynchronous call into an application that displays live data from an API.</span></p><p><span>By the end of the lab you will have:</span></p><ul><li><p><span>Created a Flutter project containing a simple </span><code>StatelessWidget</code><span> application.</span></p></li><li><p><span>Write a </span><code>Future</code><span> that simulates a delayed call.</span></p></li><li><p><span>Added the </span><code>http</code><span> and </span><code>intl</code><span> packages to your project.</span></p></li><li><p><span>Replaced the simulated call with a real HTTP GET request.</span></p></li><li><p><span>Checked the response status code before processing the data.</span></p></li><li><p><span>Parsed JSON into a </span><code>List&lt;Map&lt;String, dynamic&gt;&gt;</code><span>.</span></p></li><li><p><span>Displayed the data using a </span><code>FutureBuilder</code><span> and a </span><code>ListView.builder</code><span>.</span></p></li><li><p><span>Created </span><code>ListTile</code><span> items containing a </span><code>CircleAvatar</code><span> profile picture.</span></p></li><li><p><span>Transformed the data (capitalising the title) before presenting it.</span></p></li><li><p><span>Commented your code to demonstrate your understanding of each step.</span></p></li><li><p><span>Explored further learning on Futures, </span><code>async</code><span>/</span><code>await</code><span> and the Dart event loop.</span></p></li></ul><p><span>Next week&#39;s lab continues this topic by handling data using Streams, which builds on the asynchronous programming you practise today.</span></p><hr /><h1 id='2-learning-outcomes'><span>2. Learning Outcomes</span></h1><p><span>By completing this lab, you should be able to:</span></p><ol><li><p><span>Explain why asynchronous programming is necessary.</span></p></li><li><p><span>Write and use a </span><code>Future</code><span> with </span><code>async</code><span> and </span><code>await</code><span>.</span></p></li><li><p><span>Add a package to a Flutter project and import it.</span></p></li><li><p><span>Retrieve data from a web API using the </span><code>http</code><span> package.</span></p></li><li><p><span>Handle an unsuccessful response by checking the status code.</span></p></li><li><p><span>Parse JSON into Dart </span><code>Map</code><span> and </span><code>List</code><span> objects.</span></p></li><li><p><span>Use a </span><code>FutureBuilder</code><span> to display loading, error and completed states.</span></p></li><li><p><span>Display a list of data using </span><code>ListView.builder</code><span> and </span><code>ListTile</code><span>.</span></p></li><li><p><span>Transform API data so that it is suitable for display.</span></p></li></ol><hr /><h1 id='3-before-you-start'><span>3. Before You Start</span></h1><p><span>You should have:</span></p><ul><li><p><span>Flutter installed and configured.</span></p></li><li><p><span>Visual Studio Code or Android Studio.</span></p></li><li><p><span>Flutter extension installed.</span></p></li><li><p><span>Android emulator, iOS simulator or physical device with an Internet connection.</span></p></li><li><p><span>Access to the lecture material, including the slide on </span><code>Future</code><span>.</span></p></li><li><p><span>Completed the previous labs, or be comfortable with widgets, classes and </span><code>Map</code><span> and </span><code>List</code><span> collections.</span></p></li></ul><blockquote><p><strong><span>Tip:</span></strong><span> If Flutter is not working before you start, ask your tutor for assistance before progressing further.</span></p></blockquote><hr /><h1 id='activity-1----futures'><span>Activity 1 – Futures</span></h1><h2 id='11-create-the-project'><span>1.1 Create the Project</span></h2><p><span>Create a Flutter project called:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="text"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="text"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">async_lab</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>Organise your work using the recommended module structure:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="text"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="text"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">CO2404/</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">└── Labs/</span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  └── Week X/</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  └── async_lab/</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 92px;"></div><div class="CodeMirror-gutters" style="display: none; height: 92px;"></div></div></div></pre><p><span>Remove the contents of </span><code>lib/main.dart</code><span>. You will build a bare-bones application from scratch.</span></p><hr /><h2 id='12-a-simulated-asynchronous-call'><span>1.2 A Simulated Asynchronous Call</span></h2><p><span>A </span><code>Future</code><span> represents a value that will be available later. Before using a real server, we will simulate a slow call using </span><code>Future.delayed()</code><span>.</span></p><p><span>Type the following into </span><code>lib/main.dart</code><span> (do not copy and paste, as typing helps you learn the syntax):</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-string">'package:flutter/material.dart'</span>;</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">void</span> <span class="cm-variable">main</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">runApp</span>(<span class="cm-keyword">const</span> <span class="cm-variable-2">MyApp</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-variable-2">MyApp</span> <span class="cm-keyword">extends</span> <span class="cm-variable-2">StatelessWidget</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">const</span> <span class="cm-variable-2">MyApp</span>({<span class="cm-keyword">super</span>.<span class="cm-variable">key</span>});</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// Simulates a slow call by waiting for 2 seconds</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable-2">Future</span><span class="cm-operator">&lt;</span><span class="cm-builtin">String</span><span class="cm-operator">&gt;</span> <span class="cm-variable">fetchData</span>() <span class="cm-keyword">async</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">await</span> <span class="cm-variable-2">Future</span>.<span class="cm-variable">delayed</span>(<span class="cm-keyword">const</span> <span class="cm-variable-2">Duration</span>(<span class="cm-variable">seconds</span>: <span class="cm-number">2</span>));</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-string">"Data loaded"</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-meta">@override</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable-2">Widget</span> <span class="cm-variable">build</span>(<span class="cm-variable-2">BuildContext</span> <span class="cm-variable">context</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">MaterialApp</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-variable">home</span>: <span class="cm-variable-2">Scaffold</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">appBar</span>: <span class="cm-variable-2">AppBar</span>(<span class="cm-variable">title</span>: <span class="cm-keyword">const</span> <span class="cm-variable-2">Text</span>(<span class="cm-string">"Futures"</span>)),</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">body</span>: <span class="cm-variable-2">Center</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">child</span>: <span class="cm-variable-2">FutureBuilder</span><span class="cm-operator">&lt;</span><span class="cm-builtin">String</span><span class="cm-operator">&gt;</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">future</span>: <span class="cm-variable">fetchData</span>(),</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">builder</span>: (<span class="cm-variable">context</span>, <span class="cm-variable">snapshot</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">snapshot</span>.<span class="cm-variable">connectionState</span> <span class="cm-operator">==</span> <span class="cm-variable-2">ConnectionState</span>.<span class="cm-variable">waiting</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-keyword">const</span> <span class="cm-variable-2">CircularProgressIndicator</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  } <span class="cm-keyword">else</span> <span class="cm-keyword">if</span> (<span class="cm-variable">snapshot</span>.<span class="cm-variable">hasError</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">Text</span>(<span class="cm-string">"Error: </span>${<span class="cm-variable">snapshot</span>.<span class="cm-variable">error</span>}<span class="cm-string">"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  } <span class="cm-keyword">else</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">Text</span>(<span class="cm-variable">snapshot</span>.<span class="cm-variable">data</span> <span class="cm-operator">??</span> <span class="cm-string">""</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  },</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;  ),</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  ),</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  ),</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  );</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 921px;"></div><div class="CodeMirror-gutters" style="display: none; height: 921px;"></div></div></div></pre><p><span>Run the application.</span></p><blockquote><p><strong><span>Note:</span></strong><span> The code in the lecture slide may look slightly different. The structure is the same: an </span><code>async</code><span> function that returns a </span><code>Future</code><span>, displayed with a </span><code>FutureBuilder</code><span>.</span></p></blockquote><hr /><h2 id='experiment'><span>Experiment</span></h2><ol><li><p><span>Change the delay from 2 seconds to 5 seconds and run the application again.</span></p></li><li><p><span>Replace the </span><code>return</code><span> line in </span><code>fetchData</code><span> with:</span></p></li></ol><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">throw</span> <span class="cm-variable-2">Exception</span>(<span class="cm-string">"Something went wrong"</span>);</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><ol start='3' ><li><p><span>Observe what is displayed, then restore the original code.</span></p></li></ol><h3 id='checkpoint'><span>Checkpoint</span></h3><p><span>Before continuing ensure:</span></p><ul><li><p><span>A loading spinner is displayed while waiting.</span></p></li><li><p><span>The text </span><code>Data loaded</code><span> is displayed after the delay.</span></p></li><li><p><span>The application did not freeze while waiting.</span></p></li><li><p><span>The error message was displayed when the exception was thrown.</span></p></li></ul><h3 id='questions'><span>Questions</span></h3><ol><li><p><span>Why is </span><code>fetchData</code><span> marked as </span><code>async</code><span>?</span></p></li><li><p><span>What does </span><code>await</code><span> do?</span></p></li><li><p><span>Why does </span><code>fetchData</code><span> return a </span><code>Future&lt;String&gt;</code><span> rather than a </span><code>String</code><span>?</span></p></li><li><p><span>What does a </span><code>FutureBuilder</code><span> do?</span></p></li><li><p><span>What would happen to the user interface if Dart had to wait for the delay before doing anything else?</span></p></li></ol><hr /><h1 id='activity-2----apis-and-packages'><span>Activity 2 – APIs and Packages</span></h1><h2 id='21-understanding-apis'><span>2.1 Understanding APIs</span></h2><p><span>It is not uncommon for mobile applications to make an HTTP request. This exchange of information is how mobile applications communicate to retrieve and send data. In this activity, you will retrieve information from a server. The application calls an endpoint (a URL) on the Internet and receives data in return. The data often originates from another source, such as a database, and is returned to the mobile application by a RESTful call, but it could also come from an external service.</span></p><p><span>An Application Programming Interface (API) is a process that a server runs to read and write data in a controlled way. This allows the server to decide what a call can retrieve, how it is retrieved and who can access it. Access is usually controlled by providing a </span><strong><span>token</span></strong><span> (a key that identifies your application or user) with each request. Tokens are preferred over sending a username and password with every request, which is not secure. The server checks the token and decides whether to grant access to the data.</span></p><p><span>For example, third-party developers can build apps that use Facebook&#39;s infrastructure. An app might use Facebook to handle sign-in, so it doesn&#39;t need its own account system, password resets and so on. The user grants permission, and the app receives a token. The app can then make API calls on the user&#39;s behalf, such as posting a message when they unlock something.</span></p><p><span>For now, all you need to understand is that third-party applications can retrieve and store data using API calls.</span></p><p><span>An API request comes in several forms:</span></p><figure class='table-figure'><table><thead><tr><th><span>Method</span></th><th><span>Typical purpose</span></th></tr></thead><tbody><tr><td><span>GET</span></td><td><span>Retrieve data</span></td></tr><tr><td><span>POST</span></td><td><span>Create new data</span></td></tr><tr><td><span>PUT</span></td><td><span>Replace existing data</span></td></tr><tr><td><span>PATCH</span></td><td><span>Update part of existing data</span></td></tr><tr><td><span>DELETE</span></td><td><span>Remove data</span></td></tr></tbody></table></figure><hr /><h2 id='22-packages'><span>2.2 Packages</span></h2><p><span>Including libraries in your Flutter application is a great way to extend its functionality by reusing code that other developers have created. There are four stages to adding a package to your application:</span></p><ol><li><p><span>Find the package you want to use at </span><a href='https://pub.dev/flutter/packages'><span>pub.dev</span></a><span>.</span></p></li><li><p><span>Add it to the </span><code>pubspec.yaml</code><span> file.</span></p></li><li><p><span>Import the package into the Dart file that needs it.</span></p></li><li><p><span>Use it within your code.</span></p></li></ol><blockquote><p><strong><span>Be careful when selecting a package.</span></strong><span> pub.dev shows which platforms each package supports (Android, iOS, Web and so on). Some packages won&#39;t support the platform you are targeting.</span></p></blockquote><p><span>Each package should have a README that explains how to import and use it.</span></p><blockquote><p><strong><span>Coursework note:</span></strong><span> It is essential that you demonstrate your understanding of every package you include in a project. You should evidence this using comments. Simply adding a package to your coursework without evidence of understanding will not be accepted.</span></p></blockquote><hr /><h2 id='23-add-the-packages'><span>2.3 Add the Packages</span></h2><p><span>You will need two packages in this lab:</span></p><figure class='table-figure'><table><thead><tr><th><span>Package</span></th><th><span>Purpose</span></th></tr></thead><tbody><tr><td><code>http</code></td><td><span>Makes HTTP requests (GET, POST, DELETE, PUT, PATCH)</span></td></tr><tr><td><code>intl</code></td><td><span>Provides text formatting, such as capitalising a string</span></td></tr></tbody></table></figure><p><span>Open a terminal in your project folder and run:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">flutter pub add http intl</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>Open </span><code>pubspec.yaml</code><span> and find the packages under </span><code>dependencies</code><span>:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="yaml"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="yaml"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">dependencies</span><span class="cm-meta">:</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">  flutter</span><span class="cm-meta">:</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom"> &nbsp;  sdk</span><span class="cm-meta">: </span>flutter</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">  http</span><span class="cm-meta">: </span>^1.2.0</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-atom">  intl</span><span class="cm-meta">: </span>^0.19.0</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 115px;"></div><div class="CodeMirror-gutters" style="display: none; height: 115px;"></div></div></div></pre><p><span>Your version numbers may differ.</span></p><blockquote><p><strong><span>Note:</span></strong><span> The caret (</span><code>^</code><span>) tells </span><code>flutter pub get</code><span> it may use any newer version within the same major version. It is good practice to find out which version works and then specify it exactly.</span></p></blockquote><p><span>Run:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">flutter pub <span class="cm-builtin">get</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><hr /><h2 id='questions-2'><span>Questions</span></h2><ol><li><p><span>What is an API?</span></p></li><li><p><span>Why do APIs use tokens rather than requiring a username and password for every request?</span></p></li><li><p><span>Which HTTP method is used to retrieve data?</span></p></li><li><p><span>What are the four stages of adding a package?</span></p></li><li><p><span>What does the </span><code>^</code><span> symbol mean in </span><code>pubspec.yaml</code><span>?</span></p></li><li><p><span>Why must you check which platforms a package supports?</span></p></li></ol><hr /><h1 id='activity-3----making-an-api-call'><span>Activity 3 – Making an API Call</span></h1><h2 id='31-replace-the-simulated-call'><span>3.1 Replace the Simulated Call</span></h2><p><span>You will now replace the simulated call with a real request to an API. The API endpoint is:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="text"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="text"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">https://dummyapi.io/data/v1/user</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>Add the following imports at the top of </span><code>main.dart</code><span>:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-string">'dart:convert'</span>;</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-string">'package:http/http.dart'</span> <span class="cm-keyword">as</span> <span class="cm-variable">http</span>;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre><p><span>Replace the </span><code>fetchData</code><span> function with:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-2">Future</span><span class="cm-operator">&lt;</span><span class="cm-builtin">String</span><span class="cm-operator">&gt;</span> <span class="cm-variable">fetchData</span>() <span class="cm-keyword">async</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">final</span> <span class="cm-variable">queryParameters</span> <span class="cm-operator">=</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">'limit'</span>: <span class="cm-string">'10'</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  };</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">final</span> <span class="cm-variable">uri</span> <span class="cm-operator">=</span> <span class="cm-variable-2">Uri</span>.<span class="cm-variable">https</span>(<span class="cm-string">'dummyapi.io'</span>, <span class="cm-string">'/data/v1/user'</span>, <span class="cm-variable">queryParameters</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">final</span> <span class="cm-variable">response</span> <span class="cm-operator">=</span> <span class="cm-keyword">await</span> <span class="cm-variable">http</span>.<span class="cm-keyword">get</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">uri</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">headers</span>: {<span class="cm-string">'app-id'</span>: <span class="cm-string">'61c32172b78391f6b89599eb'</span>},</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  );</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">print</span>(<span class="cm-variable">response</span>.<span class="cm-variable">statusCode</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">final</span> <span class="cm-variable">responseJson</span> <span class="cm-operator">=</span> <span class="cm-variable">jsonDecode</span>(<span class="cm-variable">response</span>.<span class="cm-variable">body</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-builtin">String</span> <span class="cm-variable">returnedData</span> <span class="cm-operator">=</span> <span class="cm-string">""</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">responseJson</span>[<span class="cm-string">'data'</span>].<span class="cm-variable">forEach</span>((<span class="cm-variable">element</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">returnedData</span> <span class="cm-operator">+=</span> <span class="cm-variable">element</span>[<span class="cm-string">"id"</span>];</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">print</span>(<span class="cm-variable">element</span>[<span class="cm-string">"id"</span>]);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  });</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">returnedData</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 622px;"></div><div class="CodeMirror-gutters" style="display: none; height: 622px;"></div></div></div></pre><p><span>Save and run the application.</span></p><blockquote><p><strong><span>Note:</span></strong><span> You should see a long String of IDs displayed in the centre of the screen, for example </span><code>60d0fe4f5311236168a109ca60d0fe4f5311236168a109cb60d0fe4f5311236168a109cc...</code><span>. The status code and each ID are also printed to the debug console. A status code of </span><code>200</code><span> means the request was successful.</span></p></blockquote><hr /><h2 id='32-comment-your-code'><span>3.2 Comment Your Code</span></h2><p><span>Add comments to every line of </span><code>fetchData</code><span> to demonstrate your understanding. You should be able to explain, in your own words:</span></p><ul><li><p><span>What </span><code>Uri.https()</code><span> builds.</span></p></li><li><p><span>What the query parameter </span><code>limit</code><span> does.</span></p></li><li><p><span>What the </span><code>app-id</code><span> header is for.</span></p></li><li><p><span>What </span><code>await</code><span> is waiting for.</span></p></li><li><p><span>What </span><code>jsonDecode()</code><span> returns.</span></p></li><li><p><span>What the </span><code>forEach</code><span> loop is doing.</span></p></li></ul><blockquote><p><strong><span>Note on encoding:</span></strong><span> If you build a URL from a plain String (for example with </span><code>Uri.parse()</code><span>), characters such as spaces can cause problems. In that case you should wrap the String in </span><code>Uri.encodeFull()</code><span>. </span><code>Uri.https()</code><span> handles this encoding for you. See the </span><a href='https://api.dart.dev/stable/dart-core/Uri/encodeFull.html'><span>Dart documentation for </span><code>Uri</code></a><span>.</span></p></blockquote><hr /><h2 id='checkpoint-2'><span>Checkpoint</span></h2><p><span>Before continuing ensure:</span></p><ul><li><p><span>The application displays a String of IDs.</span></p></li><li><p><span>Your debug console shows a status code of </span><code>200</code><span>.</span></p></li><li><p><span>Your code is commented.</span></p></li></ul><h3 id='questions-3'><span>Questions</span></h3><ol><li><p><span>What does </span><code>Uri.https()</code><span> do?</span></p></li><li><p><span>What does the </span><code>app-id</code><span> header do?</span></p></li><li><p><span>What is the value of </span><code>response.body</code><span> before </span><code>jsonDecode()</code><span> is called?</span></p></li><li><p><span>What does a status code of </span><code>200</code><span> mean?</span></p></li><li><p><span>Why is the status code printed?</span></p></li></ol><hr /><h1 id='activity-4----understanding-the-json'><span>Activity 4 – Understanding the JSON</span></h1><p><span>Before you can use the data, you need to understand its structure. The API returns JSON data similar to this (shortened to three users):</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="json" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="json"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"data"</span>: [</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"id"</span>: <span class="cm-string">"60d0fe4f5311236168a109ca"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"title"</span>: <span class="cm-string">"ms"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"firstName"</span>: <span class="cm-string">"Sara"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"lastName"</span>: <span class="cm-string">"Andersen"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"picture"</span>: <span class="cm-string">"https://randomuser.me/api/portraits/women/58.jpg"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  },</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"id"</span>: <span class="cm-string">"60d0fe4f5311236168a109cb"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"title"</span>: <span class="cm-string">"miss"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"firstName"</span>: <span class="cm-string">"Edita"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"lastName"</span>: <span class="cm-string">"Vestering"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"picture"</span>: <span class="cm-string">"https://randomuser.me/api/portraits/med/women/89.jpg"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  },</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"id"</span>: <span class="cm-string">"60d0fe4f5311236168a109cc"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"title"</span>: <span class="cm-string">"ms"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"firstName"</span>: <span class="cm-string">"Adina"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"lastName"</span>: <span class="cm-string">"Barbosa"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"picture"</span>: <span class="cm-string">"https://randomuser.me/api/portraits/med/women/28.jpg"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  ],</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"total"</span>: <span class="cm-number">99</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"page"</span>: <span class="cm-number">0</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"limit"</span>: <span class="cm-number">10</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 645px;"></div><div class="CodeMirror-gutters" style="display: none; height: 645px;"></div></div></div></pre><p><span>There are four parts to this object: </span><code>data</code><span>, </span><code>total</code><span>, </span><code>page</code><span> and </span><code>limit</code><span>. The users we want are held in the </span><code>data</code><span> list. To access each user, you will need to iterate through the list using a </span><code>for</code><span> loop or </span><code>forEach</code><span>.</span></p><blockquote><p><strong><span>Note:</span></strong><span> Dart </span><code>Map</code><span> keys are case-sensitive. The JSON key is </span><code>firstName</code><span>, so </span><code>element[&quot;firstname&quot;]</code><span> would return </span><code>null</code><span>.</span></p></blockquote><hr /><h2 id='investigate'><span>Investigate</span></h2><p><span>Add the following temporarily inside </span><code>fetchData</code><span>, after </span><code>jsonDecode()</code><span>:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">print</span>(<span class="cm-variable">responseJson</span>.<span class="cm-variable">runtimeType</span>);</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">print</span>(<span class="cm-variable">responseJson</span>[<span class="cm-string">'data'</span>].<span class="cm-variable">runtimeType</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">print</span>(<span class="cm-variable">responseJson</span>[<span class="cm-string">'total'</span>]);</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre><p><span>Run the application and look at the debug console. Remove the lines once you have finished.</span></p><h3 id='questions-4'><span>Questions</span></h3><ol><li><p><span>What are the four top-level keys in the JSON?</span></p></li><li><p><span>Which key holds the list of users?</span></p></li><li><p><span>What Dart type does </span><code>jsonDecode()</code><span> return for a JSON object? What type does it return for a JSON list?</span></p></li><li><p><span>How many users are available on the server in total?</span></p></li><li><p><span>Why might the code fail if you wrote </span><code>element[&quot;firstname&quot;]</code><span> instead of </span><code>element[&quot;firstName&quot;]</code><span>?</span></p></li></ol><hr /><h1 id='activity-5----checking-the-response-and-parsing-the-data'><span>Activity 5 – Checking the Response and Parsing the Data</span></h1><h2 id='51-check-the-status-code'><span>5.1 Check the Status Code</span></h2><p><span>A request does not always succeed. If the server is unavailable or your token is rejected, the response will contain an error rather than the data you expected.</span></p><p><span>Extend </span><code>fetchData</code><span> so that the data is only decoded if the request was successful. Check that </span><code>response.statusCode</code><span> is </span><code>200</code><span> </span><strong><span>before</span></strong><span> calling </span><code>jsonDecode()</code><span>. Otherwise, return an empty result.</span></p><blockquote><p><strong><span>Hint:</span></strong><span> Use an </span><code>if</code><span> / </span><code>else</code><span> statement. Place the </span><code>jsonDecode()</code><span> call inside the </span><code>if</code><span> block.</span></p></blockquote><hr /><h2 id='52-return-a-list-of-maps'><span>5.2 Return a List of Maps</span></h2><p><span>Rather than joining the IDs into a String, </span><code>fetchData</code><span> should return a </span><code>List</code><span> of </span><code>Map</code><span> objects. Each </span><code>Map</code><span> holds the details of one user.</span></p><p><span>Update the function&#39;s return type to:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-2">Future</span><span class="cm-operator">&lt;</span><span class="cm-variable-2">List</span><span class="cm-operator">&lt;</span><span class="cm-variable-2">Map</span><span class="cm-operator">&lt;</span><span class="cm-builtin">String</span>, <span class="cm-builtin">dynamic</span><span class="cm-operator">&gt;&gt;&gt;</span> <span class="cm-variable">fetchData</span>() <span class="cm-keyword">async</span> {</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>Now implement the function body. Declare a list at the start of the function, then add one </span><code>Map</code><span> per user inside the </span><code>forEach</code><span> loop:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">final</span> <span class="cm-variable-2">List</span><span class="cm-operator">&lt;</span><span class="cm-variable-2">Map</span><span class="cm-operator">&lt;</span><span class="cm-builtin">String</span>, <span class="cm-builtin">dynamic</span><span class="cm-operator">&gt;&gt;</span> <span class="cm-variable">returnedData</span> <span class="cm-operator">=</span> [];</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">responseJson</span>[<span class="cm-string">'data'</span>].<span class="cm-variable">forEach</span>((<span class="cm-variable">element</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">element</span>[<span class="cm-string">"id"</span>] <span class="cm-operator">!=</span> <span class="cm-atom">null</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">returnedData</span>.<span class="cm-variable">add</span>({</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string">'id'</span>: <span class="cm-variable">element</span>[<span class="cm-string">"id"</span>],</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string">'title'</span>: <span class="cm-variable">element</span>[<span class="cm-string">"title"</span>],</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string">'firstname'</span>: <span class="cm-variable">element</span>[<span class="cm-string">"firstName"</span>],</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string">'lastname'</span>: <span class="cm-variable">element</span>[<span class="cm-string">"lastName"</span>],</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string">'image'</span>: <span class="cm-variable">element</span>[<span class="cm-string">"picture"</span>],</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  });</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">});</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">return</span> <span class="cm-variable">returnedData</span>;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 299px;"></div><div class="CodeMirror-gutters" style="display: none; height: 299px;"></div></div></div></pre><p><span>In the </span><code>else</code><span> branch (for an unsuccessful response), return an empty list:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">return</span> [];</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><blockquote><p><strong><span>Note:</span></strong><span> This code parses the JSON into a </span><code>List</code><span> of </span><code>Map</code><span> objects. It iterates through each element and inserts the values into a new </span><code>Map</code><span> with keys that we choose.</span></p></blockquote><hr /><h2 id='53-update-the-futurebuilder'><span>5.3 Update the FutureBuilder</span></h2><p><span>The </span><code>FutureBuilder</code><span> must now expect a list instead of a String. Update its type:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-2">FutureBuilder</span><span class="cm-operator">&lt;</span><span class="cm-variable-2">List</span><span class="cm-operator">&lt;</span><span class="cm-variable-2">Map</span><span class="cm-operator">&lt;</span><span class="cm-builtin">String</span>, <span class="cm-builtin">dynamic</span><span class="cm-operator">&gt;&gt;&gt;</span>(</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>To check your work before building the full list, temporarily display the number of users:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">return</span> <span class="cm-variable-2">Text</span>(<span class="cm-string">"</span>${<span class="cm-variable">snapshot</span>.<span class="cm-variable">data</span><span class="cm-operator">?</span>.<span class="cm-variable">length</span> <span class="cm-operator">??</span> <span class="cm-number">0</span>} <span class="cm-string">users loaded"</span>);</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><h3 id='checkpoint-3'><span>Checkpoint</span></h3><p><span>Before continuing ensure:</span></p><ul><li><p><span>The application displays </span><code>10 users loaded</code><span>.</span></p></li><li><p><span>No errors appear in the debug console.</span></p></li></ul><h3 id='questions-5'><span>Questions</span></h3><ol><li><p><span>Why should the status code be checked before </span><code>jsonDecode()</code><span> is called?</span></p></li><li><p><span>What would happen if the status code check was removed and the server returned an error?</span></p></li><li><p><span>Why is the data converted into our own </span><code>Map</code><span> rather than used straight from the JSON?</span></p></li><li><p><span>What does the </span><code>if (element[&quot;id&quot;] != null)</code><span> check protect against?</span></p></li><li><p><span>Why does the function return an empty list when the request fails?</span></p></li></ol><hr /><h1 id='activity-6----building-the-user-interface'><span>Activity 6 – Building the User Interface</span></h1><p><span>The data is now in a suitable form to display. Rather than displaying it in a </span><code>Text</code><span> widget, you will use a </span><code>ListView.builder</code><span> and </span><code>ListTile</code><span>. For this you should refer to the learning materials for </span><em><span>Flutter UI Extra</span></em><span>.</span></p><blockquote><p><strong><span>Tip:</span></strong><span> </span><code>ListView.builder</code><span> only builds the tiles that are currently visible on screen, so it remains efficient even with very long lists.</span></p></blockquote><hr /><h2 id='61-build-the-list'><span>6.1 Build the List</span></h2><p><span>Replace the temporary </span><code>Text</code><span> widget in the completed state of your </span><code>FutureBuilder</code><span> with a </span><code>ListView.builder</code><span>. Use this structure as a starting point:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">final</span> <span class="cm-variable">data</span> <span class="cm-operator">=</span> <span class="cm-variable">snapshot</span>.<span class="cm-variable">data</span> <span class="cm-operator">??</span> [];</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">return</span> <span class="cm-variable-2">ListView</span>.<span class="cm-variable">builder</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">itemCount</span>: <span class="cm-variable">data</span>.<span class="cm-variable">length</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">itemBuilder</span>: (<span class="cm-variable">context</span>, <span class="cm-variable">index</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">final</span> <span class="cm-variable">item</span> <span class="cm-operator">=</span> <span class="cm-variable">data</span>[<span class="cm-variable">index</span>];</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable-2">ListTile</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-comment">// TODO: complete the tile</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  );</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  },</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">);</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 322px;"></div><div class="CodeMirror-gutters" style="display: none; height: 322px;"></div></div></div></pre><p><span>Complete the </span><code>ListTile</code><span> so that:</span></p><ul><li><p><span>The </span><code>title</code><span> property displays the </span><strong><span>ID</span></strong><span>.</span></p></li><li><p><span>The </span><code>subtitle</code><span> property displays the </span><strong><span>title, first name and last name</span></strong><span>.</span></p></li></ul><hr /><h2 id='62-add-the-profile-picture'><span>6.2 Add the Profile Picture</span></h2><p><span>Add a </span><code>CircleAvatar</code><span> that displays the profile picture, with an error icon as a fallback if the image cannot be loaded:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">leading</span>: <span class="cm-variable-2">CircleAvatar</span>(</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">child</span>: <span class="cm-variable-2">Image</span>.<span class="cm-variable">network</span>(</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">item</span>[<span class="cm-string">"image"</span>],</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">errorBuilder</span>: (<span class="cm-variable">context</span>, <span class="cm-variable">error</span>, <span class="cm-variable">stackTrace</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-keyword">const</span> <span class="cm-variable-2">Icon</span>(<span class="cm-variable-2">Icons</span>.<span class="cm-variable">error</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  },</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  ),</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">),</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 184px;"></div><div class="CodeMirror-gutters" style="display: none; height: 184px;"></div></div></div></pre><blockquote><p><strong><span>Note:</span></strong><span> This code displays the profile photo in a circle and uses an error icon as a fallback. If you are running your application as a Flutter Web application, the profile images will not be displayed. This is outside the scope of this module. Web browsers enforce a security policy (CORS) that controls how a page can request resources, such as images, from a different domain to the one it was loaded from. Running on Android, iOS or desktop avoids this issue.</span></p></blockquote><p><span>Your finished screen should look similar to this:</span></p><p><span class='md-image'><img src="https://mlochrie.github.io/CO2404/25-26/lab-activities/list.png" align="left" style="zoom:50%" /></span></p><hr /><h2 id='63-handle-the-different-states'><span>6.3 Handle the Different States</span></h2><p><span>A </span><code>FutureBuilder</code><span> should handle every state the Future can be in. Update your builder so that it displays:</span></p><figure class='table-figure'><table><thead><tr><th><span>State</span></th><th><span>What to display</span></th></tr></thead><tbody><tr><td><span>Waiting</span></td><td><span>A </span><code>CircularProgressIndicator</code><span> in the centre of the screen</span></td></tr><tr><td><span>Error</span></td><td><span>A </span><code>Text</code><span> widget showing the error</span></td></tr><tr><td><span>No data (empty list)</span></td><td><span>A message such as </span><code>No data found</code></td></tr><tr><td><span>Data</span></td><td><span>The </span><code>ListView.builder</code></td></tr></tbody></table></figure><blockquote><p><strong><span>Hint:</span></strong><span> Check </span><code>snapshot.connectionState</code><span>, </span><code>snapshot.hasError</code><span> and whether </span><code>snapshot.data</code><span> is empty, in that order.</span></p></blockquote><h3 id='checkpoint-4'><span>Checkpoint</span></h3><p><span>Before continuing ensure:</span></p><ul><li><p><span>A spinner is displayed while data loads.</span></p></li><li><p><span>A list of 10 users is displayed with IDs, names and profile pictures.</span></p></li><li><p><span>Turning off the network (or putting your emulator into airplane mode) and restarting the application shows an error message rather than crashing.</span></p></li></ul><h3 id='questions-6'><span>Questions</span></h3><ol><li><p><span>Why is </span><code>ListView.builder</code><span> used rather than creating a </span><code>Text</code><span> widget for each user?</span></p></li><li><p><span>What is the purpose of </span><code>itemCount</code><span>?</span></p></li><li><p><span>What is </span><code>index</code><span> used for in </span><code>itemBuilder</code><span>?</span></p></li><li><p><span>What does </span><code>errorBuilder</code><span> do?</span></p></li><li><p><span>Why is it important to handle the loading and error states?</span></p></li></ol><hr /><h1 id='activity-7----transforming-the-data'><span>Activity 7 – Transforming the Data</span></h1><p><span>When using data from an API, you will notice it doesn&#39;t always return presentable data. For example, the title is lower case (</span><code>ms</code><span>, </span><code>mr</code><span>). This is why we copy the data into our own </span><code>Map</code><span>: so that it can be transformed where needed before being displayed.</span></p><p><span>Update the </span><code>Map</code><span> so that, rather than displaying the title as it is returned, the first letter is capitalised.</span></p><p><span>Add the following import to </span><code>main.dart</code><span>:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="dart"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="dart"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51562px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-string">'package:intl/intl.dart'</span> <span class="cm-keyword">show</span> <span class="cm-variable">toBeginningOfSentenceCase</span>;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>Then use </span><code>toBeginningOfSentenceCase()</code><span> when adding the title to the </span><code>Map</code><span>.</span></p><blockquote><p><strong><span>Hint:</span></strong><span> </span><code>toBeginningOfSentenceCase()</code><span> takes a String and returns it with the first letter capitalised, for example </span><code>ms</code><span> becomes </span><code>Ms</code><span>.</span></p></blockquote><p><span>Run the application and check that each subtitle now reads, for example, </span><code>Ms Sara Andersen</code><span>.</span></p><h3 id='questions-7'><span>Questions</span></h3><ol><li><p><span>Why is the data transformed when it is placed in the </span><code>Map</code><span>, rather than in the user interface?</span></p></li><li><p><span>What does </span><code>show toBeginningOfSentenceCase</code><span> do in the import statement?</span></p></li><li><p><span>What would happen if the API returned a </span><code>null</code><span> title? How could you protect against this?</span></p></li><li><p><span>Can you think of other fields in this data that might need transforming?</span></p></li></ol><hr /><h1 id='activity-8----additional-learning'><span>Activity 8 – Additional Learning</span></h1><p><span>Continue your learning about Futures, </span><code>async</code><span>, </span><code>await</code><span> and the event loop using the following resources:</span></p><ul><li><p><a href='https://www.youtube.com/watch?v=vl_AaCgudcY'><span>Isolates and Event Loops</span></a></p></li><li><p><a href='https://www.youtube.com/watch?v=OTS-ap9_aXc'><span>Futures</span></a></p></li><li><p><a href='https://www.youtube.com/watch?v=SmTCmDMi4BY'><span>Async/Await</span></a></p></li></ul><p><span>Be ready to explain the following to your tutor:</span></p><ol><li><p><span>What the event loop is.</span></p></li><li><p><span>The difference between a </span><code>Future</code><span> and an isolate.</span></p></li><li><p><span>How errors are handled in asynchronous code.</span></p></li></ol><p><span>Next week we will handle data using Streams, which builds on the knowledge of writing asynchronous programs in Flutter.</span></p><hr /><h1 id='extension-challenges'><span>Extension Challenges</span></h1><h2 id='challenge-1----handle-errors-with-try--catch'><span>Challenge 1 – Handle Errors with try / catch</span></h2><p><span>Wrap the request in </span><code>fetchData</code><span> in a </span><code>try</code><span> / </span><code>catch</code><span> block so that a failed network connection (for example no Internet) is handled in the function rather than only in the </span><code>FutureBuilder</code><span>. Decide whether the function should return an empty list or rethrow the error, and justify your choice.</span></p><hr /><h2 id='challenge-2----a-user-model-class'><span>Challenge 2 – A User Model Class</span></h2><p><span>Rather than using a </span><code>Map&lt;String, dynamic&gt;</code><span>, create a </span><code>User</code><span> class in </span><code>lib/models/user.dart</code><span> with private variables and getters (as in the Encapsulation lab). Add a </span><code>factory User.fromJson(Map&lt;String, dynamic&gt; json)</code><span> constructor, and change </span><code>fetchData</code><span> to return </span><code>Future&lt;List&lt;User&gt;&gt;</code><span>.</span></p><p><span>Explain why a model class is safer than a </span><code>Map</code><span>.</span></p><hr /><h2 id='challenge-3----avoid-repeated-requests'><span>Challenge 3 – Avoid Repeated Requests</span></h2><p><span>Because </span><code>fetchData()</code><span> is called inside </span><code>build()</code><span>, the request may be repeated every time the widget is rebuilt. Convert </span><code>MyApp</code><span> into a </span><code>StatefulWidget</code><span>, store the </span><code>Future</code><span> in a variable and assign it once in </span><code>initState()</code><span>. Explain why this is better.</span></p><hr /><h2 id='challenge-4----pull-to-refresh'><span>Challenge 4 – Pull to Refresh</span></h2><p><span>Wrap your list in a </span><code>RefreshIndicator</code><span> so that pulling down on the list loads the data again. You will need the </span><code>StatefulWidget</code><span> from Challenge 3.</span></p><hr /><h2 id='challenge-5----page-through-the-data'><span>Challenge 5 – Page Through the Data</span></h2><p><span>The API supports a </span><code>page</code><span> query parameter. Add buttons to load the next and previous pages of users, and display the </span><code>total</code><span> and the current page number from the JSON.</span></p><hr /><h1 id='reflection'><span>Reflection</span></h1><p><span>Before leaving the lab, make sure you can answer the following:</span></p><ol><li><p><span>Why is asynchronous programming needed in Dart?</span></p></li><li><p><span>What is a </span><code>Future</code><span>?</span></p></li><li><p><span>What do </span><code>async</code><span> and </span><code>await</code><span> do?</span></p></li><li><p><span>What is an API and what is a token used for?</span></p></li><li><p><span>How do you add a package to a Flutter project?</span></p></li><li><p><span>Why should the status code be checked before the data is used?</span></p></li><li><p><span>What does </span><code>jsonDecode()</code><span> do?</span></p></li><li><p><span>What does a </span><code>FutureBuilder</code><span> do, and which states must it handle?</span></p></li><li><p><span>Why is </span><code>ListView.builder</code><span> efficient for long lists?</span></p></li><li><p><span>Why do we transform API data before displaying it?</span></p></li></ol><blockquote><p><strong><span>Remember:</span></strong><span> Have your work signed off by your tutor.</span></p></blockquote><hr /></div></div>
+</body>
+</html>
